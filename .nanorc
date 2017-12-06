@@ -1,0 +1,6 @@
+#include /usr/share/nano/python.nanorc
+#include /usr/share/nano/sh.nanorc
+set nowrap
+set nonewlines
+#set tabsize 4
+set tabstospaces

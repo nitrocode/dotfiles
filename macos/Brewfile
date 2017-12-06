@@ -1,0 +1,168 @@
+# a lot of this came from brew bundle dump
+cask_args appdir: "/Applications"
+tap "caskroom/cask"
+tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
+
+## cask apps ##
+# browsers
+cask "google-chrome"
+cask "firefox"
+# terminal
+cask "iterm2"
+# editors
+cask "atom"
+cask "intellij-idea-ce"
+# source control gui
+cask "sourcetree"
+# database
+cask "sqlworkbenchj"
+cask "mysqlworkbench"
+# data visualization
+cask "tableau-reader"
+# fb messenger
+cask "goofy"
+# vms
+cask "virtualbox"
+cask "virtualbox-extension-pack"
+# vm manager
+cask "vagrant"
+cask "vagrant-manager"
+# containers
+cask "docker"
+# aws creds manager
+cask "aws-vault"
+# cloud drives
+cask "google-drive-file-stream"
+cask "onedrive"
+# install java dependency
+cask "java"
+# authenticator
+cask "authy"
+# window manager
+cask "spectacle"
+# remove ambient blue at night
+cask "flux"
+# disable monitor
+cask "disablemonitor"
+# remove apps completely
+cask "appcleaner"
+# install different calendar
+cask "itsycal"
+# install js desktop widgets
+cask "ubersicht"
+# disk usage analyzer
+cask "GrandPerspective"
+# cast to screen
+cask "mkchromecast"
+# player
+cask "vlc"
+# uploader
+cask "transmit"
+# install image editor
+cask "gimp"
+
+## brew cli tools ##
+
+# editors
+brew "vim"
+brew "nano"
+
+# from brew dump
+brew "ack"
+brew "adns"
+brew "ansible"
+brew "asciidoc"
+brew "cmake"
+brew "coreutils"
+brew "docbook"
+brew "dos2unix"
+brew "findutils"
+brew "freetype"
+brew "gawk"
+brew "gdbm"
+brew "geos"
+brew "gettext"
+brew "git"
+brew "gmp"
+brew "gnu-getopt"
+brew "gnu-indent"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "gnupg"
+brew "gnutls"
+brew "go"
+brew "goofys"
+brew "grep"
+brew "htop"
+brew "icu4c"
+# modify images
+brew "imagemagick"
+brew "itermocil"
+brew "jpeg"
+# modify json
+brew "jq"
+brew "json-c"
+brew "lftp"
+brew "libassuan"
+brew "libdnet"
+brew "libevent"
+brew "libffi"
+brew "libgcrypt"
+brew "libgit2"
+brew "libgpg-error"
+brew "libidn"
+brew "libksba"
+brew "libpng"
+brew "libssh2"
+brew "libtasn1"
+brew "libtiff"
+brew "libtool"
+brew "libunistring"
+brew "libusb"
+brew "libyaml"
+# configuration saver
+brew "mackup"
+brew "mas"
+brew "moreutils"
+brew "mpack"
+brew "mpfr"
+brew "ncdu"
+brew "nettle"
+brew "nmap"
+brew "npth"
+brew "oniguruma"
+brew "openssl"
+brew "p11-kit"
+brew "p7zip"
+brew "pass"
+brew "pcre"
+brew "phantomjs"
+brew "pinentry"
+brew "pkg-config"
+brew "postgresql"
+brew "proj"
+brew "pyqt"
+brew "python"
+brew "python3"
+brew "qrencode"
+brew "qt"
+brew "readline"
+brew "saltstack"
+brew "sbt"
+brew "scala"
+brew "sip"
+brew "sqlite"
+brew "ssh-copy-id"
+brew "terraform"
+brew "tmux"
+brew "todo-txt"
+brew "trash"
+brew "tree"
+brew "watch"
+brew "wget"
+brew "wrk"
+brew "xmlstarlet"
+brew "xz"
+brew "zeromq"
+brew "zmap"
+brew "zsh"
