@@ -4,6 +4,9 @@ tap "caskroom/cask"
 tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
 ## cask apps ##
+# chat
+cask "microsoft-teams"
+cask "slack"
 # browsers
 cask "google-chrome"
 cask "firefox"
