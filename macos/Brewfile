@@ -91,13 +91,15 @@ brew "gnu-tar"
 brew "gnupg"
 brew "gnutls"
 brew "go"
+# dependency for goofys
+brew "osxfuse"
+# this will mount s3 buckets locally
 brew "goofys"
 brew "grep"
 brew "htop"
 brew "icu4c"
 # modify images
 brew "imagemagick"
-brew "itermocil"
 brew "jpeg"
 # modify json
 brew "jq"
