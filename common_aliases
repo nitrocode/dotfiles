@@ -81,7 +81,7 @@ genguid() {
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # NVM and node
-export NVM_DIR="/Users/bhatiar/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 plugins+=(zsh-nvm)
 
