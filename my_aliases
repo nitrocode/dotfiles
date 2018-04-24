@@ -1,3 +1,2 @@
 #!/bin/bash
 source ~/dotfiles/common_aliases
-source ~/dotfiles/vici
