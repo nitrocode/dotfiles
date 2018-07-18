@@ -1,5 +1,7 @@
 # ls aliases
 alias ls="ls -F --color=auto --group-directories-first"
+# colorful ls
+#alias ls="ls -G -F"
 alias ll="ls -l"
 
 # grep aliases
@@ -23,29 +25,34 @@ alias urlencode='python -c "import sys, urllib as ul; \
 # nano 4 spaces for each tab thanks to stefano (http://askubuntu.com/questions/40732/how-do-i-get-spaces-instead-of-tabs-in-nano)
 alias nano="nano -ET4"
 
+## start windows
 # ifconfig for ipconfig
-alias ifconfig="ipconfig"
-
-# ssh machines
-alias qad="ssh rbhatia@qa-dev-0"
-
+#alias ifconfig="ipconfig"
 # windows kill task using PID
-alias wkill="taskkill /F /PID"
+#alias wkill="taskkill /F /PID"
 # windows kill task using process name
-function wkillall {
-    tasklist | grep $1 | awk '{print $2;}' | while read f; do wkill $f; done;
-}
+#function wkillall {
+#    tasklist | grep $1 | awk '{print $2;}' | while read f; do wkill $f; done;
+#}
 # windows ip
-alias winip="ipconfig | grep Wireless -A5 | grep IPv4 | awk '{print \$NF}'"
-
-# misc
-# ```export SLIMERJSLAUNCHER="/cygdrive/c/Program Files (x86)/Mozilla Firefox/firefox.exe"```
-
-# colorful ls
-alias ls="ls -G -F"
+#alias winip="ipconfig | grep Wireless -A5 | grep IPv4 | awk '{print \$NF}'"
+## end windows
 
 # alias todo
 alias t="todo.sh"
+
+# git
+alias gca="git commit -a"
+alias gc="git commit"
+
+# remove all compiled pyc files recursively from pwd
+# alias rmpyc='find . -name "*.pyc" 2>&1 | while read f; do rm $f; done'
+alias rmpyc='find . -name "*.pyc" -delete'
+
+# bring it up without provision, save it to init, and provision
+alias vunp='vagrant up --no-provision; vagrant halt; vagrant snapshot save init; vagrant up --provision; vagrant ssh'
+# vagrant restore to init and provision
+alias vrap='vagrant snapshot restore init; vagrant up --provision; vagrant ssh'
 
 # less cannot unzip gzip files
 # source: https://askubuntu.com/a/62660
@@ -80,31 +87,5 @@ genguid() {
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# NVM and node
-export NVM_DIR="~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-plugins+=(zsh-nvm)
-
 # add completion for itermocil
 compctl -g '~/.itermocil/*(:t:r)' itermocil
-
-# https://stackoverflow.com/a/15157360/2965993
-alias npm-exec='PATH=$(npm bin):$PATH'
-
-
-# git
-alias gca="git commit -a"
-alias gc="git commit"
-
-# aws
-alias aws="aws.py"
-alias aws.cmd="aws.py"
-
-# remove all compiled pyc files recursively from pwd
-# alias rmpyc='find . -name "*.pyc" 2>&1 | while read f; do rm $f; done'
-alias rmpyc='find . -name "*.pyc" -delete'
-
-# bring it up without provision, save it to init, and provision
-alias vunp='vagrant up --no-provision; vagrant halt; vagrant snapshot save init; vagrant up --provision; vagrant ssh'
-# vagrant restore to init and provision
-alias vrap='vagrant snapshot restore init; vagrant up --provision; vagrant ssh'
