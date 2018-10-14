@@ -1,8 +1,6 @@
 # ls aliases
+# OSX: to make this work, install gnu versions and set path correctly
 alias ls="ls -F --color=auto --group-directories-first"
-# colorful ls
-#alias ls="ls -G -F"
-alias ll="ls -l"
 
 # grep aliases
 alias grep="grep --color=auto"
@@ -40,10 +38,6 @@ alias nano="nano -ET4"
 
 # alias todo
 alias t="todo.sh"
-
-# git
-alias gca="git commit -a"
-alias gc="git commit"
 
 # remove all compiled pyc files recursively from pwd
 # alias rmpyc='find . -name "*.pyc" 2>&1 | while read f; do rm $f; done'
@@ -89,3 +83,5 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 # add completion for itermocil
 compctl -g '~/.itermocil/*(:t:r)' itermocil
+
+alias jq='jq -C'

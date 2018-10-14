@@ -4,8 +4,10 @@ tap "caskroom/cask"
 tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
 ## cask apps ##
+# xquartz dependency
+cask "xquartz"
+
 # chat
-cask "microsoft-teams"
 cask "slack"
 # browsers
 cask "google-chrome"
@@ -14,7 +16,9 @@ cask "firefox"
 cask "iterm2"
 # editors
 cask "atom"
-cask "intellij-idea-ce"
+#cask "intellij-idea-ce"
+cask "pycharm"
+cask "vscode"
 # source control gui
 cask "sourcetree"
 # database
@@ -63,15 +67,75 @@ cask "vlc"
 cask "transmit"
 # install image editor
 cask "gimp"
+# install weather menu applet
+#cask "temps"
+# clipboard manager
+cask "clipy"
+# show keyboard shortcuts for apps
+cask "cheatsheet"
+# keep monitor from sleeping
+cask "caffeine"
 
 ## brew cli tools ##
 
+# hit rest endpoints
+brew "curl"
+brew "httpie"
+brew "wget"
+
 # editors
 brew "vim"
+brew "neovim"
 brew "nano"
 
-# from brew dump
+# better greps
 brew "ack"
+brew "ripgrep"
+brew "the_silver_searcher"
+
+# rust version of cat
+brew "bat"
+
+# convert data like yaml2json
+brew "remarshal"
+
+# set default applications for file extensions
+brew "duti"
+
+# rdesktop for rdp
+brew "rdesktop"
+
+# make oneliner sql readable
+brew "sqlparse"
+
+# youtube downloader
+brew "youtube-dl"
+brew "ffmpeg"
+
+# docker
+brew "docker"
+brew "docker-compose"
+brew "docker-machine"
+brew "xhyve"
+brew "docker-machine-driver-xhyve"
+
+# modify/query data files like json, yaml
+brew "jq"
+brew "yq"
+
+# install dependencies of pyenv
+brew "readline"
+brew "xz"
+brew "pyenv"
+
+# git
+brew "git"
+brew "git-extras"
+
+# tldr docs better than man
+brew "tldr"
+
+# from brew dump
 brew "adns"
 brew "ansible"
 brew "asciidoc"
@@ -81,16 +145,16 @@ brew "docbook"
 brew "dos2unix"
 brew "findutils"
 brew "freetype"
-brew "gawk"
+brew "gawk", args: ['with-default-names']
 brew "gdbm"
 brew "geos"
 brew "gettext"
-brew "git"
 brew "gmp"
-brew "gnu-getopt"
-brew "gnu-indent"
-brew "gnu-sed"
-brew "gnu-tar"
+brew "gnu-getopt", args: ['with-default-names']
+brew "gnu-indent", args: ['with-default-names']
+brew "gnu-sed", args: ['with-default-names']
+brew "gnu-tar", args: ['with-default-names']
+brew "gnu-time", args: ['with-default-names']
 brew "gnupg"
 brew "gnutls"
 brew "go"
@@ -98,14 +162,12 @@ brew "go"
 brew "osxfuse"
 # this will mount s3 buckets locally
 brew "goofys"
-brew "grep"
+brew "grep", args: ['with-default-names']
 brew "htop"
 brew "icu4c"
 # modify images
 brew "imagemagick"
 brew "jpeg"
-# modify json
-brew "jq"
 brew "json-c"
 brew "lftp"
 brew "libassuan"
@@ -127,6 +189,7 @@ brew "libusb"
 brew "libyaml"
 # configuration saver
 brew "mackup"
+brew "make", args: ['with-default-names']
 brew "mas"
 brew "moreutils"
 brew "mpack"
@@ -141,7 +204,6 @@ brew "p11-kit"
 brew "p7zip"
 brew "pass"
 brew "pcre"
-brew "phantomjs"
 brew "pinentry"
 brew "pkg-config"
 brew "postgresql"
@@ -151,10 +213,8 @@ brew "python"
 brew "python3"
 brew "qrencode"
 brew "qt"
-brew "readline"
+brew "rsync"
 brew "saltstack"
-brew "sbt"
-brew "scala"
 brew "sip"
 brew "sqlite"
 brew "ssh-copy-id"
@@ -164,10 +224,8 @@ brew "todo-txt"
 brew "trash"
 brew "tree"
 brew "watch"
-brew "wget"
 brew "wrk"
 brew "xmlstarlet"
-brew "xz"
 brew "zeromq"
 brew "zmap"
 brew "zsh"
