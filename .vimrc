@@ -6,7 +6,7 @@ set ruler
 set background=dark
 set showcmd
 set incsearch
-set bs=2
+"set bs=2
 syntax on
 set hlsearch
 set expandtab
@@ -19,3 +19,4 @@ set nowritebackup
 set fileformat=unix
 set fileformats=unix,dos
 "set nobinary
+set number
