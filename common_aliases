@@ -53,7 +53,7 @@ alias vrap='vagrant snapshot restore init; vagrant up --provision; vagrant ssh'
 # [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # https://superuser.com/a/417152
-export GREP_OPTIONS='--color=always'
+#export GREP_OPTIONS='--color=always'
 export GREP_COLOR='1;35;40'
 
 # https://stackoverflow.com/a/10768196
