@@ -6,7 +6,7 @@ This is my setup to make my development environment more portable.
 
 Install `brew` and apps in `Brewfile` (this will take a while)
 
-* Brewfile uses regular [brew apps](http://searchbrew.com/) and [cask apps](https://caskroom.github.io/search)
+Brewfile uses regular [brew apps](http://searchbrew.com/) and [cask apps](https://caskroom.github.io/search)
 
     ./brew.sh
 
