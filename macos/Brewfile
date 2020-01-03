@@ -29,20 +29,21 @@ cask "sourcetree"
 cask "sqlworkbenchj"
 cask "mysqlworkbench"
 # data visualization
-cask "tableau-reader"
+#cask "tableau-reader"
 # vms
 cask "virtualbox"
 cask "virtualbox-extension-pack"
 # vm manager
 cask "vagrant"
-cask "vagrant-manager"
+#cask "vagrant-manager"
 # containers
 cask "docker"
 # aws creds manager
 cask "aws-vault"
 # cloud drives
-cask "google-drive-file-stream"
-cask "onedrive"
+#cask "google-drive-file-stream"
+#cask "onedrive"
+cask "dropbox"
 # install java dependency
 cask "java"
 # authenticator
