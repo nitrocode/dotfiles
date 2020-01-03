@@ -1,6 +1,5 @@
 #!/bin/sh
 ./brew.sh
 ./configs.sh
-./dock.sh
+#./dock.sh
 ./shell.sh
-./node.sh
