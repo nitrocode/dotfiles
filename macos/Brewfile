@@ -1,5 +1,5 @@
 # a lot of this came from brew bundle dump
-cask_args appdir: "/Applications"
+cask_args appdir: "~/Applications"
 tap "caskroom/cask"
 tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
@@ -9,16 +9,20 @@ cask "xquartz"
 
 # chat
 cask "slack"
+# fb messenger
+#cask "goofy"
+# secure chat
+cask "keybase"
 # browsers
 cask "google-chrome"
 cask "firefox"
 # terminal
 cask "iterm2"
 # editors
-cask "atom"
+#cask "atom"
 #cask "intellij-idea-ce"
 cask "pycharm"
-cask "vscode"
+cask "visual-studio-code"
 # source control gui
 cask "sourcetree"
 # database
@@ -26,8 +30,6 @@ cask "sqlworkbenchj"
 cask "mysqlworkbench"
 # data visualization
 cask "tableau-reader"
-# fb messenger
-cask "goofy"
 # vms
 cask "virtualbox"
 cask "virtualbox-extension-pack"
@@ -51,14 +53,17 @@ cask "spectacle"
 cask "flux"
 # disable monitor
 cask "disablemonitor"
-# remove apps completely
-cask "appcleaner"
 # install different calendar
 cask "itsycal"
 # install js desktop widgets
 cask "ubersicht"
 # disk usage analyzer
 cask "GrandPerspective"
+# clean up
+cask "cleanup"
+cask "clean-me"
+# remove apps completely
+cask "appcleaner"
 # cast to screen
 cask "mkchromecast"
 # player
@@ -74,7 +79,12 @@ cask "clipy"
 # show keyboard shortcuts for apps
 cask "cheatsheet"
 # keep monitor from sleeping
-cask "caffeine"
+cask "keepingyouawake"
+# vpn software to connect to multiple
+cask "tunnelblick"
+# monospace font
+tap "homebrew/cask-fonts"
+cask "font-fira-code"
 
 ## brew cli tools ##
 
@@ -135,7 +145,14 @@ brew "git-extras"
 # tldr docs better than man
 brew "tldr"
 
-# from brew dump
+# language specific compilation and env tooling
+brew "nvm"
+brew "jenv"
+
+# aws
+brew "awscli"
+
+# from brew dump and uncategorized
 brew "adns"
 brew "ansible"
 brew "asciidoc"
@@ -145,16 +162,16 @@ brew "docbook"
 brew "dos2unix"
 brew "findutils"
 brew "freetype"
-brew "gawk", args: ['with-default-names']
+brew "gawk"
 brew "gdbm"
 brew "geos"
 brew "gettext"
 brew "gmp"
-brew "gnu-getopt", args: ['with-default-names']
-brew "gnu-indent", args: ['with-default-names']
-brew "gnu-sed", args: ['with-default-names']
-brew "gnu-tar", args: ['with-default-names']
-brew "gnu-time", args: ['with-default-names']
+brew "gnu-getopt"
+brew "gnu-indent"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "gnu-time"
 brew "gnupg"
 brew "gnutls"
 brew "go"
@@ -162,7 +179,7 @@ brew "go"
 brew "osxfuse"
 # this will mount s3 buckets locally
 brew "goofys"
-brew "grep", args: ['with-default-names']
+brew "grep"
 brew "htop"
 brew "icu4c"
 # modify images
@@ -189,7 +206,7 @@ brew "libusb"
 brew "libyaml"
 # configuration saver
 brew "mackup"
-brew "make", args: ['with-default-names']
+brew "make"
 brew "mas"
 brew "moreutils"
 brew "mpack"
