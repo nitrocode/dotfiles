@@ -132,6 +132,7 @@ brew "docker-machine-driver-xhyve"
 # modify/query data files like json, yaml
 brew "jq"
 brew "yq"
+brew "q"
 
 # install dependencies of pyenv
 brew "readline"
