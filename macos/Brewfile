@@ -128,6 +128,8 @@ brew "docker-compose"
 brew "docker-machine"
 brew "xhyve"
 brew "docker-machine-driver-xhyve"
+# docker linter
+brew "hadolint"
 
 ## search data
 # json
@@ -138,6 +140,8 @@ brew "yq"
 brew "q"
 # better grep
 brew "sift"
+# xml
+brew "xmlstarlet"
 
 # install dependencies of pyenv
 brew "readline"
@@ -157,10 +161,30 @@ brew "jenv"
 
 # aws
 brew "awscli"
+# this will mount s3 buckets locally
+brew "osxfuse"
+brew "goofys"
+
+# zsh
+brew "zsh"
+brew "zsh-autosuggestions"
+
+# network tools
+brew "nmap"
+brew "zmap"
+
+# configuration saver
+brew "mackup"
+
+# provisioner 
+brew "ansible"
+#brew "saltstack"
+
+# modify images
+brew "imagemagick"
 
 # from brew dump and uncategorized
 brew "adns"
-brew "ansible"
 brew "asciidoc"
 brew "cmake"
 brew "coreutils"
@@ -181,15 +205,9 @@ brew "gnu-time"
 brew "gnupg"
 brew "gnutls"
 brew "go"
-# dependency for goofys
-brew "osxfuse"
-# this will mount s3 buckets locally
-brew "goofys"
 brew "grep"
 brew "htop"
 brew "icu4c"
-# modify images
-brew "imagemagick"
 brew "jpeg"
 brew "json-c"
 brew "lftp"
@@ -210,8 +228,6 @@ brew "libtool"
 brew "libunistring"
 brew "libusb"
 brew "libyaml"
-# configuration saver
-brew "mackup"
 brew "make"
 brew "mas"
 brew "moreutils"
@@ -219,7 +235,6 @@ brew "mpack"
 brew "mpfr"
 brew "ncdu"
 brew "nettle"
-brew "nmap"
 brew "npth"
 brew "oniguruma"
 brew "openssl"
@@ -237,7 +252,6 @@ brew "python3"
 brew "qrencode"
 brew "qt"
 brew "rsync"
-brew "saltstack"
 brew "sip"
 brew "sqlite"
 brew "ssh-copy-id"
@@ -248,7 +262,4 @@ brew "trash"
 brew "tree"
 brew "watch"
 brew "wrk"
-brew "xmlstarlet"
 brew "zeromq"
-brew "zmap"
-brew "zsh"
