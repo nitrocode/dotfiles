@@ -1,13 +1,15 @@
 [user]
     name = nitrocode
-    email = nitrocode@github.com
-[includeIf "gitdir:~/work/"]
-    path = ~/work/.gitconfig
+    email = nitrocode@users.noreply.github.com
+[includeIf "gitdir:~/git/work"]
+    path = ~/git/work/.gitconfig
+[includeIf "gitdir:~/git/personal"]
+    path = ~/git/personal/.gitconfig
 [core]
     excludesfile = ~/.gitignore_global
-[mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
+#[mergetool "sourcetree"]
+#    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#    trustExitCode = true
+#[difftool "sourcetree"]
+#    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+#    path =
