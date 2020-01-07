@@ -11,7 +11,6 @@ plugins=(
   alias-tips
   node
   npm
-  brew
   osx
   extract
   z
