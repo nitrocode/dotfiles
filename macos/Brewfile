@@ -1,6 +1,5 @@
 # a lot of this came from brew bundle dump
 cask_args appdir: "~/Applications"
-tap "caskroom/cask"
 tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
 ## cask apps ##
@@ -86,6 +85,8 @@ cask "tunnelblick"
 # monospace font
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
+# hide menu items
+cask "dozer"
 
 ## brew cli tools ##
 
@@ -144,14 +145,18 @@ brew "sift"
 # xml
 brew "xmlstarlet"
 
+## python stuff
 # install dependencies of pyenv
 brew "readline"
 brew "xz"
 brew "pyenv"
+# for easy python environments
+brew "pipenv"
 
 # git
 brew "git"
 brew "git-extras"
+brew "git-flow-avh"
 
 # tldr docs better than man
 brew "tldr"
@@ -160,11 +165,14 @@ brew "tldr"
 brew "nvm"
 brew "jenv"
 
-# aws
+# aws and cloud tools
 brew "awscli"
 # this will mount s3 buckets locally
 brew "osxfuse"
 brew "goofys"
+# instead of terraform, install tf manager
+# this also reads .terraform-version files and auto switches unlike chtf
+brew "tfenv"
 
 # zsh
 brew "zsh"
@@ -183,6 +191,17 @@ brew "ansible"
 
 # modify images
 brew "imagemagick"
+
+# compile tools
+brew "gcc"
+brew "go"
+
+## security
+# keepass cli
+brew "pass"
+
+# load .env files
+brew "direnv"
 
 # from brew dump and uncategorized
 brew "adns"
@@ -205,7 +224,6 @@ brew "gnu-tar"
 brew "gnu-time"
 brew "gnupg"
 brew "gnutls"
-brew "go"
 brew "grep"
 brew "htop"
 brew "icu4c"
@@ -238,16 +256,18 @@ brew "ncdu"
 brew "nettle"
 brew "npth"
 brew "oniguruma"
+# should this be replaced with libressl?
 brew "openssl"
+#brew "libressl"
 brew "p11-kit"
 brew "p7zip"
-brew "pass"
 brew "pcre"
 brew "pinentry"
 brew "pkg-config"
 brew "postgresql"
 brew "proj"
 brew "pyqt"
+# unsure if these pythons are required if using pyenv
 brew "python"
 brew "python3"
 brew "qrencode"
@@ -256,7 +276,6 @@ brew "rsync"
 brew "sip"
 brew "sqlite"
 brew "ssh-copy-id"
-brew "terraform"
 brew "tmux"
 brew "todo-txt"
 brew "trash"
