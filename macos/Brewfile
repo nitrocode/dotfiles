@@ -87,6 +87,8 @@ tap "homebrew/cask-fonts"
 cask "font-fira-code"
 # hide menu items
 cask "dozer"
+# office suite
+cask "libreoffice"
 
 ## brew cli tools ##
 
@@ -173,6 +175,7 @@ brew "goofys"
 # instead of terraform, install tf manager
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
+brew "landscape"
 
 # zsh
 brew "zsh"
