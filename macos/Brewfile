@@ -175,7 +175,7 @@ brew "goofys"
 # instead of terraform, install tf manager
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
-brew "landscape"
+brew "terraform_landscape"
 
 # zsh
 brew "zsh"
