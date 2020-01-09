@@ -17,7 +17,3 @@ Update the dock. Sometimes dock items will show up as question marks.
 Setup [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell
 
     ./shell.sh
-
-Install LTS node
-
-    ./node.sh
