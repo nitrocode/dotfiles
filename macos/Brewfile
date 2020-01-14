@@ -138,6 +138,9 @@ brew "hadolint"
 ## search data
 # json
 brew "jq"
+# jmespath
+tap "jmespath/jmespath"
+brew "jmespath/jmespath/jp"
 # yaml
 brew "yq"
 # sql against csv
