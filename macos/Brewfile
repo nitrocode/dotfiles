@@ -6,15 +6,16 @@ tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 # xquartz dependency
 cask "xquartz"
 
+# some stuff is commented out because it may already be installed on the system
 # chat
-cask "slack"
+#cask "slack"
+# browsers
+#cask "google-chrome"
+#cask "firefox"
 # fb messenger
 #cask "goofy"
 # secure chat
 cask "keybase"
-# browsers
-cask "google-chrome"
-cask "firefox"
 # terminal
 cask "iterm2"
 # editors
