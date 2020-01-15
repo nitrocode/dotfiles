@@ -162,6 +162,7 @@ brew "pipenv"
 brew "git"
 brew "git-extras"
 brew "git-flow-avh"
+brew "git-secrets"
 
 # tldr docs better than man
 brew "tldr"
@@ -179,6 +180,7 @@ brew "goofys"
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
 brew "terraform_landscape"
+brew "tflint"
 
 # zsh
 brew "zsh"
