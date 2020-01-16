@@ -1,5 +1,7 @@
-# download Brewfile
+# install brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# download Brewfile
+curl -s https://raw.githubusercontent.com/nitrocode/dotfiles/master/macos/Brewfile > Brewfile
 # install from Brewfile
 brew bundle install
 # relink anything broken
