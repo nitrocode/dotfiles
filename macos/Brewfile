@@ -164,6 +164,8 @@ brew "git"
 brew "git-extras"
 brew "git-flow-avh"
 brew "git-secrets"
+# for github stuff
+brew "hub"
 
 # tldr docs better than man
 brew "tldr"
@@ -212,8 +214,11 @@ brew "pass"
 # load .env files
 brew "direnv"
 
-# from brew dump and uncategorized
+# dns
+brew "whois"
 brew "adns"
+
+# from brew dump and uncategorized
 brew "asciidoc"
 brew "cmake"
 brew "coreutils"
