@@ -184,6 +184,7 @@ brew "goofys"
 brew "tfenv"
 brew "terraform_landscape"
 brew "tflint"
+brew "terraforming"
 
 # zsh
 brew "zsh"
