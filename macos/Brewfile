@@ -90,6 +90,8 @@ cask "font-fira-code"
 cask "dozer"
 # office suite
 cask "libreoffice"
+# make gifs from screen
+cask "gifcapture"
 
 ## brew cli tools ##
 
@@ -208,6 +210,7 @@ brew "imagemagick"
 # compile tools
 brew "gcc"
 brew "go"
+brew "dep"
 
 ## security
 # keepass cli
