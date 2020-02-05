@@ -188,6 +188,8 @@ brew "terraform_landscape"
 brew "tflint"
 brew "terraforming"
 brew "terraformer"
+# pack images
+brew "packer"
 
 # zsh
 brew "zsh"
