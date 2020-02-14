@@ -24,3 +24,8 @@ ln -s /usr/local/bin/gmake /usr/local/bin/make
 ln -s /usr/local/bin/gsed /usr/local/bin/sed
 ln -s /usr/local/bin/gtar /usr/local/bin/tar
 ln -s /usr/local/bin/ggrep /usr/local/bin/grep
+
+# use brew less
+# source: https://apple.stackexchange.com/a/281116/282367
+hash -d less
+hash -r
