@@ -48,6 +48,9 @@ cask "dropbox"
 cask "java"
 # authenticator
 cask "authy"
+# password managers
+#cask "lastpass"
+#cask "1password"
 # window manager
 cask "spectacle"
 # remove ambient blue at night
@@ -161,6 +164,10 @@ brew "pyenv"
 # for easy python environments
 brew "pipenv"
 
+# language specific compilation and env tooling
+brew "nvm"
+brew "jenv"
+
 # git
 brew "git"
 brew "git-extras"
@@ -171,10 +178,6 @@ brew "hub"
 
 # tldr docs better than man
 brew "tldr"
-
-# language specific compilation and env tooling
-brew "nvm"
-brew "jenv"
 
 # aws and cloud tools
 brew "awscli"
@@ -229,12 +232,14 @@ brew "adns"
 
 # ssh
 brew "sshuttle"
+brew "ssh-copy-id"
 
 # gnu
-brew "gawk"
 brew "coreutils"
+brew "dos2unix"
 brew "findutils"
 brew "less"
+brew "gawk"
 brew "gnu-getopt"
 brew "gnu-indent"
 brew "gnu-sed"
@@ -249,11 +254,19 @@ brew "tree"
 brew "watch"
 brew "rsync"
 
+# mac apple store
+brew "mas"
+
+# for ftp
+brew "lftp"
+
+# for postgresql / redshift
+brew "postgresql"
+
 # from brew dump and uncategorized
 brew "asciidoc"
 brew "cmake"
 brew "docbook"
-brew "dos2unix"
 brew "freetype"
 brew "gdbm"
 brew "geos"
@@ -262,7 +275,6 @@ brew "gmp"
 brew "icu4c"
 brew "jpeg"
 brew "json-c"
-brew "lftp"
 brew "libassuan"
 brew "libdnet"
 brew "libevent"
@@ -280,7 +292,6 @@ brew "libtool"
 brew "libunistring"
 brew "libusb"
 brew "libyaml"
-brew "mas"
 brew "moreutils"
 brew "mpack"
 brew "mpfr"
@@ -296,7 +307,6 @@ brew "p7zip"
 brew "pcre"
 brew "pinentry"
 brew "pkg-config"
-brew "postgresql"
 brew "proj"
 brew "pyqt"
 # unsure if these pythons are required if using pyenv
@@ -307,7 +317,6 @@ brew "qrencode"
 brew "qt"
 brew "sip"
 brew "sqlite"
-brew "ssh-copy-id"
 brew "tmux"
 brew "todo-txt"
 brew "trash"
