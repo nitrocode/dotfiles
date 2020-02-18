@@ -184,6 +184,10 @@ brew "awscli"
 # this will mount s3 buckets locally
 brew "osxfuse"
 brew "goofys"
+# convert iam json to terraform
+brew "iam-policy-json-to-terraform"
+# pack images
+brew "packer"
 # lots of command foo with s3
 brew "s3cmd"
 # instead of terraform, install tf manager
@@ -193,8 +197,6 @@ brew "terraform_landscape"
 brew "tflint"
 brew "terraforming"
 brew "terraformer"
-# pack images
-brew "packer"
 
 # zsh
 brew "zsh"
