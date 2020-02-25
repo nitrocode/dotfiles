@@ -197,6 +197,7 @@ brew "terraform_landscape"
 brew "tflint"
 brew "terraforming"
 brew "terraformer"
+brew "terraform-docs"
 
 # zsh
 brew "zsh"
