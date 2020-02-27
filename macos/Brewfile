@@ -95,7 +95,8 @@ cask "dozer"
 cask "libreoffice"
 # make gifs from screen
 cask "gifcapture"
-
+# github notifications
+cask "gitify"
 ## brew cli tools ##
 
 # hit rest endpoints
