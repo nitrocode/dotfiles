@@ -195,6 +195,7 @@ brew "s3cmd"
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
 brew "terraform_landscape"
+brew "tfsec"
 brew "tflint"
 brew "terraforming"
 brew "terraformer"
