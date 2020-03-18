@@ -21,7 +21,7 @@ cask "iterm2"
 # editors
 #cask "atom"
 #cask "intellij-idea-ce"
-cask "pycharm"
+cask "pycharm-ce"
 cask "visual-studio-code"
 # source control gui
 cask "sourcetree"
