@@ -10,6 +10,7 @@ cask "xquartz"
 # chat
 #cask "slack"
 # browsers
+cask "chromium"
 #cask "google-chrome"
 #cask "firefox"
 # fb messenger
