@@ -183,6 +183,8 @@ brew "tldr"
 
 # aws and cloud tools
 brew "awscli"
+# read aws cloudwatch logs
+brew "awslogs"
 # this will mount s3 buckets locally
 brew "osxfuse"
 brew "goofys"
