@@ -197,12 +197,19 @@ brew "s3cmd"
 # instead of terraform, install tf manager
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
+# tf11 prettyify output
 brew "terraform_landscape"
+# linters
 brew "tfsec"
 brew "tflint"
+# checkov linter
+tap "bridgecrewio/checkov"
+brew "checkov"
+# module output doc automation
+brew "terraform-docs"
+# backporting terraform
 brew "terraforming"
 brew "terraformer"
-brew "terraform-docs"
 
 # zsh
 brew "zsh"
