@@ -149,6 +149,8 @@ brew "jq"
 # jmespath
 tap "jmespath/jmespath"
 brew "jmespath/jmespath/jp"
+# jc for jsonifying command output
+brew "jp"
 # yaml
 brew "yq"
 # sql against csv
@@ -200,7 +202,8 @@ brew "tfenv"
 # tf11 prettyify output
 brew "terraform_landscape"
 # linters
-brew "tfsec"
+tap "liamg/tfsec"
+brew "liamg/tfsec/tfsec"
 brew "tflint"
 # checkov linter
 tap "bridgecrewio/checkov"
