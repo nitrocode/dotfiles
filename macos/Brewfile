@@ -78,6 +78,7 @@ cask "transmit"
 # install image editor
 cask "gimp"
 cask "shapes"
+#cask "drawio"
 # install weather menu applet
 #cask "temps"
 # clipboard manager
@@ -168,6 +169,7 @@ brew "xz"
 brew "pyenv"
 # for easy python environments
 brew "pipenv"
+brew "poetry"
 
 # language specific compilation and env tooling
 brew "nvm"
