@@ -7,6 +7,10 @@
     path = ~/git/personal/.gitconfig
 [core]
     excludesfile = ~/.gitignore_global
+    pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+[interactive]
+    diffFilter = delta --color-only
+
 #[mergetool "sourcetree"]
 #    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 #    trustExitCode = true
