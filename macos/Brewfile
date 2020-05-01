@@ -177,6 +177,7 @@ brew "jenv"
 
 # git
 brew "git"
+brew "git-delta"
 brew "git-extras"
 brew "git-flow-avh"
 brew "git-secrets"
