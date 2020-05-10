@@ -244,6 +244,7 @@ brew "dep"
 ## security
 # keepass cli
 brew "pass"
+brew "oath-toolkit"
 
 # load .env files
 brew "direnv"
