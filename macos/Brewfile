@@ -52,6 +52,7 @@ cask "authy"
 # password managers
 #cask "lastpass"
 #cask "1password"
+cask "keepassxc"
 # window manager
 cask "spectacle"
 # remove ambient blue at night
