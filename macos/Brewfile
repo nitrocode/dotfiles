@@ -243,9 +243,12 @@ brew "go"
 brew "dep"
 
 ## security
+# test totp tokens locally
+brew "oath-toolkit"
 # keepass cli
 brew "pass"
-brew "oath-toolkit"
+# convert qr code to text
+brew "zbar"
 
 # load .env files
 brew "direnv"
