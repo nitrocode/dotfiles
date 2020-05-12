@@ -101,6 +101,9 @@ cask "libreoffice"
 cask "gifcapture"
 # github notifications
 cask "gitify"
+# install sourcetrail for dependency graphs
+cask "sourcetrail"
+
 ## brew cli tools ##
 
 # hit rest endpoints
@@ -289,6 +292,9 @@ brew "lftp"
 
 # for postgresql / redshift
 brew "postgresql"
+
+# for visualization graphs using the dot command
+brew "graphviz"
 
 # from brew dump and uncategorized
 brew "asciidoc"
