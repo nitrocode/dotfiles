@@ -103,6 +103,8 @@ cask "gifcapture"
 cask "gitify"
 # install sourcetrail for dependency graphs
 cask "sourcetrail"
+# good gui diff tool
+cask "meld"
 
 ## brew cli tools ##
 
