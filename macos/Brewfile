@@ -109,7 +109,9 @@ cask "meld"
 ## brew cli tools ##
 
 # hit rest endpoints
-brew "curl"
+# pycurl requires this instead of the curl package
+brew "curl-openssl"
+# brew "curl" # due to pycurl
 brew "httpie"
 brew "wget"
 
