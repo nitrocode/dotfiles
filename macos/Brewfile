@@ -53,6 +53,8 @@ cask "authy"
 #cask "lastpass"
 #cask "1password"
 cask "keepassxc"
+# firewall similar to little snitch
+cask "lulu"
 # window manager
 cask "spectacle"
 # remove ambient blue at night
