@@ -53,6 +53,8 @@ cask "authy"
 #cask "lastpass"
 #cask "1password"
 cask "keepassxc"
+# force paste password as an apple script
+cask "force-paste"
 # firewall similar to little snitch
 cask "lulu"
 # window manager
