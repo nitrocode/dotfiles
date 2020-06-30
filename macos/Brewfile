@@ -306,6 +306,9 @@ brew "postgresql"
 # for visualization graphs using the dot command
 brew "graphviz"
 
+# for precommit hooks from yaml files
+brew "pre-commit"
+
 # from brew dump and uncategorized
 brew "asciidoc"
 brew "cmake"
