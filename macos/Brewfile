@@ -109,6 +109,8 @@ cask "gitify"
 cask "sourcetrail"
 # good gui diff tool
 cask "meld"
+# google drive mount
+cask "google-backup-and-sync"
 
 ## brew cli tools ##
 
