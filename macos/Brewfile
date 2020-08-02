@@ -262,6 +262,9 @@ brew "dep"
 brew "oath-toolkit"
 # keepass cli
 brew "pass"
+# snyk security scanner
+tap "snyk/tap"
+brew "snyk"
 # convert qr code to text
 brew "zbar"
 
