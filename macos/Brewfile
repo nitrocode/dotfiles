@@ -265,6 +265,8 @@ brew "pass"
 # snyk security scanner
 tap "snyk/tap"
 brew "snyk"
+# docker checker
+brew "skopeo"
 # convert qr code to text
 brew "zbar"
 
