@@ -205,6 +205,8 @@ brew "tldr"
 brew "awscli"
 # read aws cloudwatch logs
 brew "awslogs"
+# athena querying
+brew "athenacli"
 # scrape cloudtrail
 brew "trailscraper"
 # this will mount s3 buckets locally
