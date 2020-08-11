@@ -201,7 +201,7 @@ brew "hub"
 # tldr docs better than man
 brew "tldr"
 
-# aws and cloud tools
+# aws and cloud/devops tools
 brew "awscli"
 # read aws cloudwatch logs
 brew "awslogs"
@@ -235,6 +235,8 @@ brew "terraform-docs"
 # backporting terraform
 brew "terraforming"
 brew "terraformer"
+# cloudcustodian
+brew "c7n"
 
 # zsh
 brew "zsh"
