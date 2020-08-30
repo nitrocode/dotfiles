@@ -28,6 +28,11 @@ scoop install virtualbox
 ## Setup
 
 1. Download the `Vagrantfile`
+
+    ```shell
+    wget https://raw.githubusercontent.com/nitrocode/dotfiles/master/agnostic/Vagrantfile
+    ```
+
 1. Optionally configure the file.
 
     The `config.vm.synced_folder` currently mounts `C:\` to `/vagrant_data`. This would have to be changed if running in OSX/Linux.
