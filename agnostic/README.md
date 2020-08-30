@@ -1,6 +1,10 @@
-# Vagrant development
+# OS Agnostic development
+
+## Use cases
 
 Let's say the company forces a developer to use a Windows computer, the mess of cygwin/apt-cyg and emulation posix environment doesn't satisfy you, and IT has blessed you explicitly or accidentally with vagrant and virtualbox access.
+
+Perhaps OSX pre-installed GNU tools are too old and too much of a bother to upgrade each one using homebrew and you'd prefer running linux in a VM to develop in.
 
 ## Features
 
@@ -26,7 +30,7 @@ scoop install virtualbox
 1. Download the `Vagrantfile`
 1. Optionally configure the file.
 
-    The `config.vm.synced_folder` currently mounts `C:\` to `/vagrant_data`
+    The `config.vm.synced_folder` currently mounts `C:\` to `/vagrant_data`. This would have to be changed if running in OSX/Linux.
 
 1. Run the `vagrant` commands
 
