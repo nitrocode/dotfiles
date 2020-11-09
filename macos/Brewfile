@@ -41,6 +41,8 @@ cask "vagrant"
 cask "docker"
 # aws creds manager
 cask "aws-vault"
+# aws ssm
+cask "session-manager-plugin"
 # cloud drives
 #cask "google-drive-file-stream"
 #cask "onedrive"
