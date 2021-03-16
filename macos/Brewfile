@@ -11,8 +11,8 @@ cask "xquartz"
 #cask "slack"
 # browsers
 cask "chromium"
-#cask "google-chrome"
-#cask "firefox"
+cask "google-chrome"
+cask "firefox"
 # fb messenger
 #cask "goofy"
 # secure chat
@@ -53,7 +53,8 @@ cask "java"
 cask "authy"
 # password managers
 #cask "lastpass"
-#cask "1password"
+cask "1password"
+cask "bitwarden"
 cask "keepassxc"
 # force paste password as an apple script
 cask "force-paste"
@@ -223,6 +224,7 @@ brew "s3cmd"
 # instead of terraform, install tf manager
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
+brew "tgenv"
 # linters
 tap "liamg/tfsec"
 brew "liamg/tfsec/tfsec"
