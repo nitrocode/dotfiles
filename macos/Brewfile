@@ -212,7 +212,7 @@ brew "athenacli"
 # scrape cloudtrail
 brew "trailscraper"
 # this will mount s3 buckets locally
-brew "osxfuse"
+cask "osxfuse"
 brew "goofys"
 # convert iam json to terraform
 brew "iam-policy-json-to-terraform"
