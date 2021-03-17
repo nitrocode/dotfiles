@@ -40,7 +40,7 @@ cask "vagrant"
 # containers
 cask "docker"
 # aws creds manager
-cask "aws-vault"
+#cask "aws-vault" # commented out because we want the --no-daemonize option which hasnt been merged yet
 # aws ssm
 cask "session-manager-plugin"
 # cloud drives
