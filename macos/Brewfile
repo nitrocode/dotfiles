@@ -1,6 +1,6 @@
 # a lot of this came from brew bundle dump
 cask_args appdir: "~/Applications"
-tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
+# tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
 ## cask apps ##
 # xquartz dependency
@@ -8,15 +8,15 @@ cask "xquartz"
 
 # some stuff is commented out because it may already be installed on the system
 # chat
-#cask "slack"
+cask "keybase"
+cask "slack"
+cask "zoom"
 # browsers
 cask "chromium"
 cask "google-chrome"
 cask "firefox"
 # fb messenger
 #cask "goofy"
-# secure chat
-cask "keybase"
 # terminal
 cask "iterm2"
 # editors
@@ -52,7 +52,6 @@ cask "java"
 # authenticator
 cask "authy"
 # password managers
-#cask "lastpass"
 cask "1password"
 cask "bitwarden"
 cask "keepassxc"
