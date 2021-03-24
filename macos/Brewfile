@@ -241,9 +241,10 @@ brew "c7n"
 # policy_sentry
 # cloudsplaining
 
-# zsh
+# shells
 brew "zsh"
 brew "zsh-autosuggestions"
+brew "bash"
 
 # network tools
 brew "nmap"
