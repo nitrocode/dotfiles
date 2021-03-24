@@ -20,3 +20,11 @@ set fileformat=unix
 set fileformats=unix,dos
 "set nobinary
 set number
+
+if has("autocmd")
+
+    " If the filetype is Makefile then we need to use tabs
+    " So do not expand tabs into space.
+    autocmd FileType make   set noexpandtab
+
+endif
