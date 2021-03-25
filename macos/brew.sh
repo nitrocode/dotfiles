@@ -11,6 +11,9 @@ brew link
 # lastly, run the doctor to see anything out of whack
 brew doctor
 
+HOMEBREW_DIR=/usr/local/bin
+LOCAL_BIN_DIR=/usr/local/bin
+
 # use the gnu tools instead of outdated mac tools
 # ls -la /usr/local/bin/g* | \
 #   grep coreutils | \
@@ -21,11 +24,12 @@ brew doctor
 #   while read gbin; do \
 #     ln -s "$gbin" "$(echo $gbin | sed 's,/usr/local/bin/g,/usr/local/bin/,g')"; \
 #   done
-ln -s /usr/local/bin/gmake /usr/local/bin/make
+ln -s $HOMEBREW_DIR/gmake $LOCAL_BIN_DIR/make
 ## unnecessary?: ln -s /usr/local/bin/gawk /usr/local/bin/awk
-ln -s /usr/local/bin/gsed /usr/local/bin/sed
-ln -s /usr/local/bin/gtar /usr/local/bin/tar
-ln -s /usr/local/bin/ggrep /usr/local/bin/grep
+ln -s $HOMEBREW_DIR/gsed $LOCAL_BIN_DIR/sed
+ln -s $HOMEBREW_DIR/gtar $LOCAL_BIN_DIR/tar
+ln -s $HOMEBREW_DIR/ggrep $LOCAL_BIN_DIR/grep
+ln -s $HOMEBREW_DIR/gls $LOCAL_BIN_DIR/ls
 
 # use brew less
 # source: https://apple.stackexchange.com/a/281116/282367
