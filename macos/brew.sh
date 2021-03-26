@@ -11,6 +11,7 @@ brew link
 # lastly, run the doctor to see anything out of whack
 brew doctor
 
+# if arm, switch to /opt/homebrew/bin
 HOMEBREW_DIR=/usr/local/bin
 LOCAL_BIN_DIR=/usr/local/bin
 
@@ -35,3 +36,6 @@ ln -s $HOMEBREW_DIR/gls $LOCAL_BIN_DIR/ls
 # source: https://apple.stackexchange.com/a/281116/282367
 hash -d less
 hash -r
+
+# install pyenv virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
