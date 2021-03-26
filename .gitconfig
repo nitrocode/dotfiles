@@ -4,8 +4,10 @@
     # signingkey
 [includeIf "gitdir:~/git/work"]
     path = ~/.gitconfig-work
-[includeIf "gitdir:~/git/personal"]
+[includeIf "gitdir:~/git/personal/github"]
     path = ~/.gitconfig-personal-github
+[includeIf "gitdir:~/git/personal/gitlab"]
+    path = ~/.gitconfig-personal-gitlab
 [core]
     excludesfile = ~/.gitignore_global
     pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
