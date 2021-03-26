@@ -1,10 +1,11 @@
 [user]
     name = nitrocode
     email = nitrocode@users.noreply.github.com
+    # signingkey
 [includeIf "gitdir:~/git/work"]
-    path = ~/git/work/.gitconfig
+    path = ~/.gitconfig-work
 [includeIf "gitdir:~/git/personal"]
-    path = ~/git/personal/.gitconfig
+    path = ~/.gitconfig-personal-github
 [core]
     excludesfile = ~/.gitignore_global
     pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
