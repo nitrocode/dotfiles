@@ -64,6 +64,32 @@ alias tfwsp="tfws production"
 ## ripgrep
 alias rg="rg --hidden"
 
+# base function for loadkeyswork and loadkeysfun
+function loadkeys {
+  ssh-add -D
+  ssh_dir=${1:-~/.ssh/}
+  echo "getting keys : $ssh_dir"
+  # ignore directories, ignore public keys, soft links, known hosts and ssh config
+  ls -F $ssh_dir | grep -v '/$' | grep -vE '.pub$|@$|^known_hosts$|config$' | while read key; do ssh-add -K $ssh_dir/$key; done
+}
+
+function loadkeyswork {
+  led-backlight-osx
+  loadkeys ~/.ssh/
+  ssh-add -K ~/.ssh/work/*github
+}
+
+function loadkeysworks {
+  led-backlight-osx
+  loadkeys ~/.ssh/
+  ssh-add -K ~/.ssh/work/*github
+}
+
+function loadkeysfun {
+  led-backlight-osx
+  loadkeys ~/.ssh/personal
+}
+
 # terraform cache
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
