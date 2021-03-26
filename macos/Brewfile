@@ -100,7 +100,8 @@ cask "tunnelblick"
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
 # hide menu items
-cask "dozer"
+# cask "dozer" # doesn't support m1
+cask "hiddenbar"
 # office suite
 cask "libreoffice"
 # make gifs from screen
