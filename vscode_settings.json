@@ -1,0 +1,118 @@
+{
+	"window.title": "${activeEditorLong}${separator}${rootName}",
+	"extensions.ignoreRecommendations": true,
+	"editor.insertSpaces": true,
+	"editor.fontFamily": "'Fira Code'",
+	"editor.fontLigatures": true,
+	"editor.tabSize": 2,
+	"editor.scrollbar.verticalScrollbarSize": 12,
+	"editor.scrollbar.vertical": "visible",
+	"editor.scrollbar.horizontal": "visible",
+	"editor.renderWhitespace": "all",
+	"terminal.external.osxExec": "iTerm.app",
+	"terminal.integrated.inheritEnv": false,
+	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+	"terminal.integrated.scrollback": 100000,
+	"terminal.integrated.scrollbar.verticalScrollbarSize": 12,
+	"terminal.integrated.scrollbar.vertical": "visible",
+	"terminal.integrated.scrollbar.horizontal": "visible",
+	"files.trimTrailingWhitespace": false,
+	"files.exclude": {
+		".git": true,
+		".build": true,
+		"**/.DS_Store": true,
+		"build/**/*.js": {
+			"when": "$(basename).ts"
+		}
+	},
+	"files.associations": {
+		"cglicenses.json": "jsonc",
+		"*.txt": "log",
+		"*.tmpl": "jinja"
+	},
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		".build/**": true,
+		"out/**": true,
+		"out-build/**": true,
+		"out-vscode/**": true,
+		"i18n/**": true,
+		"extensions/**/out/**": true,
+		"test/smoke/out/**": true,
+		"src/vs/base/test/node/uri.test.data.txt": true
+	},
+	"lcov.path": [
+		"./.build/coverage/lcov.info",
+		"./.build/coverage-single/lcov.info"
+	],
+	"lcov.watch": [
+		{
+			"pattern": "**/*.test.js",
+			"command": "${workspaceFolder}/scripts/test.sh --coverage --run ${file}",
+			"windows": {
+				"command": "${workspaceFolder}\\scripts\\test.bat --coverage --run ${file}"
+			}
+		}
+	],
+	"eslint.options": {
+		"rulePaths": [
+			"./build/lib/eslint"
+		]
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"npm.exclude": "**/extensions/**",
+	"npm.packageManager": "yarn",
+	"emmet.excludeLanguages": [],
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.quoteStyle": "single",
+	"json.schemas": [
+		{
+			"fileMatch": [
+				"cgmanifest.json"
+			],
+			"url": "./.vscode/cgmanifest.schema.json"
+		},
+		{
+			"fileMatch": [
+				"cglicenses.json"
+			],
+			"url": "./.vscode/cglicenses.schema.json"
+		}
+	],
+	"git.ignoreLimitWarning": true,
+	"remote.extensionKind": {
+		"msjsdiag.debugger-for-chrome": "workspace"
+	},
+	"gulp.autoDetect": "off",
+	"workbench.startupEditor": "newUntitledFile",
+	"workbench.iconTheme": "vscode-icons",
+	"vsicons.dontShowNewVersionMessage": true,
+	"terraform.indexing": {
+		"enabled": false,
+		"liveIndexing": false,
+		"delay": 500,
+		"exclude": [
+			".terraform/**/*",
+			"**/.terraform/**/*"
+		]
+	},
+	"terraform.languageServer": {
+		"enabled": true,
+		"args": [
+			"serve"
+		],
+		"external": true
+	},
+
+	"go.useLanguageServer": true,
+	"go.toolsEnvVars": {
+		"GO111MODULE": "on"
+	},
+	"workbench.editorAssociations": [
+		{
+			"viewType": "jupyter.notebook.ipynb",
+			"filenamePattern": "*.ipynb"
+		}
+	]
+}
