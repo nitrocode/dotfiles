@@ -115,7 +115,7 @@ cask "meld"
 # google drive mount
 cask "google-backup-and-sync"
 # security
-cask "cyberduck"
+# cask "cyberduck"
 
 ## brew cli tools ##
 
