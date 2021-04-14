@@ -328,6 +328,9 @@ brew "graphviz"
 # for precommit hooks from yaml files
 brew "pre-commit"
 
+# all *env instead of tfenv, rbenv, pyenv, etc
+brew "asdf"
+
 # from brew dump and uncategorized
 brew "asciidoc"
 brew "cmake"
