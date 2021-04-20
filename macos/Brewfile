@@ -248,6 +248,7 @@ brew "c7n"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "bash"
+brew "shellcheck"
 
 # network tools
 brew "nmap"
