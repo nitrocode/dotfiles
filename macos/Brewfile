@@ -228,7 +228,7 @@ brew "s3cmd"
 brew "tfenv"
 brew "tgenv"
 # generate terraform code
-brew "cdktf"
+brew "cdktf", args: ["ignore-dependencies"]
 # linters
 tap "liamg/tfsec"
 brew "liamg/tfsec/tfsec"
