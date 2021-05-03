@@ -227,6 +227,8 @@ brew "s3cmd"
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
 brew "tgenv"
+# generate terraform code
+brew "cdktf"
 # linters
 tap "liamg/tfsec"
 brew "liamg/tfsec/tfsec"
