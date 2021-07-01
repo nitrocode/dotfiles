@@ -1,7 +1,6 @@
-# set g prefixed names with their default names
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+###### global .zshrc
 
-# ohmyzsh init
+#### source .zshrc_omz
 export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
@@ -22,17 +21,51 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# grab other aliases
-#source ~/.my.aliases
+# use zplug to manage addons
+source ~/.zplug/init.zsh
+
+# stop zsh update prompt, just update
+export DISABLE_UPDATE_PROMPT="true"
+
+# For ZSH users, uncomment the following two lines:
+# why ?
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+# ???
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+
+#### source .rc_android
+# http://gianlucacosta.info/android-studio-ubuntu
+export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+export PATH="/home/user/Android/Sdk/platform-tools:$PATH"
+export PATH="/home/user/Android/Sdk/tools/bin:$PATH"
+
+#### source .rc_linux
+export SNAP=/snap/
+export PATH="/snap/bin/:$PATH"
+
+# linux clipboard specific
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+alias pbcopy=getclip
+alias pbpaste=setclip
+
+#### source .rc_osx
+# set g prefixed names with their default names
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export HOMEBREW_NO_ANALYTICS=1
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# iterm2 completion
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+#### source .rc_code
 # go stuff
 export GOPATH=~/go
 export PATH="$GOPATH/bin:$PATH"
-
-# direnv
-eval "$(direnv hook zsh)"
 
 # pyenv
 eval "$(pyenv init -)"
@@ -42,14 +75,20 @@ eval "$(pyenv virtualenv-init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# ???
-fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit
+# direnv
+eval "$(direnv hook zsh)"
 
-# random aliases
-## misc
+#### source .rc_misc
+## misc alias
+alias vi="vim"
+alias vim="neovim"
 alias ls="ls -F --color=auto"
-## terraform
+## ripgrep
+alias rg="rg --hidden"
+
+#### source .rc_terraform
+# terraform cache
+# export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 alias tf="terraform"
 alias tfi="tf init"
 alias tfiu="tfi -upgrade"
@@ -61,9 +100,8 @@ alias tfwl="tfw list"
 alias tfws="tfw select"
 alias tfwss="tfws staging"
 alias tfwsp="tfws production"
-## ripgrep
-alias rg="rg --hidden"
 
+#### source .rc_functions
 # base function for loadkeyswork and loadkeysfun
 function loadkeys {
   ssh-add -D
@@ -90,24 +128,11 @@ function loadkeysfun {
   loadkeys ~/.ssh/personal
 }
 
-# terraform cache
-export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-
+#### source .rc_bma
 # https://github.com/bash-my-aws/bash-my-aws
 export PATH="$PATH:$HOME/.bash-my-aws/bin"
 source ~/.bash-my-aws/aliases
 
-# For ZSH users, uncomment the following two lines:
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
 # additional aws aliases and functions
-export PATH="/usr/local/opt/libressl/bin:$PATH"
-
-# complete -o nospace -C /usr/local/Cellar/tfenv/2.0.0/versions/0.12.29/terraform terraform
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+#export PATH="/usr/local/opt/libressl/bin:$PATH"
+#export PATH="/usr/local/opt/mysql-client/bin:$PATH"
