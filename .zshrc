@@ -69,7 +69,8 @@ export PATH="$GOPATH/bin:$PATH"
 
 # pyenv
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# https://github.com/pyenv/pyenv-virtualenv
+#eval "$(pyenv virtualenv-init -)"
 
 # nvm
 export NVM_DIR=~/.nvm
@@ -81,7 +82,6 @@ eval "$(direnv hook zsh)"
 #### source .rc_misc
 ## misc alias
 alias vi="vim"
-alias vim="neovim"
 alias ls="ls -F --color=auto"
 ## ripgrep
 alias rg="rg --hidden"
