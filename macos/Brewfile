@@ -116,6 +116,8 @@ cask "meld"
 cask "google-backup-and-sync"
 # security
 # cask "cyberduck"
+# screenshot
+cask "flameshot"
 
 ## brew cli tools ##
 
