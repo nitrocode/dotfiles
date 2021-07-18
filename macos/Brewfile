@@ -7,6 +7,12 @@ cask_args appdir: "~/Applications"
 cask "xquartz"
 
 # some stuff is commented out because it may already be installed on the system
+# authenticator
+cask "authy"
+# password managers
+cask "1password"
+cask "bitwarden"
+cask "keepassxc"
 # chat
 cask "keybase"
 cask "slack"
@@ -49,12 +55,6 @@ cask "session-manager-plugin"
 cask "dropbox"
 # install java dependency
 cask "java"
-# authenticator
-cask "authy"
-# password managers
-cask "1password"
-cask "bitwarden"
-cask "keepassxc"
 # force paste password as an apple script
 cask "force-paste"
 # firewall similar to little snitch
