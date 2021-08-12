@@ -203,7 +203,8 @@ brew "git-extras"
 brew "git-flow-avh"
 brew "git-secrets"
 # for github stuff
-brew "hub"
+#brew "hub"
+brew "gh"
 
 # tldr docs better than man
 brew "tldr"
