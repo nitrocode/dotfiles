@@ -232,6 +232,8 @@ brew "s3cmd"
 # this also reads .terraform-version files and auto switches unlike chtf
 brew "tfenv"
 brew "tgenv"
+# get schema of terraform resources
+brew "tfschema"
 # generate terraform code
 brew "cdktf", args: ["ignore-dependencies"]
 # linters
