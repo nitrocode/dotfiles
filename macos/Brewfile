@@ -169,6 +169,8 @@ brew "hadolint"
 ## search data
 # json
 brew "jq"
+# json paths
+brew "gron"
 # jmespath
 tap "jmespath/jmespath"
 brew "jmespath/jmespath/jp"
