@@ -1,3 +1,7 @@
 *history*
 .vagrant/
 work_aliases
+
+*.un~
+*~
+*.log
