@@ -304,6 +304,8 @@ brew "sshuttle"
 brew "ssh-copy-id"
 
 # gnu
+## latest dig
+brew "bind"
 brew "coreutils"
 brew "dos2unix"
 brew "findutils"
