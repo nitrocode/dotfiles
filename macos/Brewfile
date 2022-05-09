@@ -307,6 +307,7 @@ brew "ssh-copy-id"
 ## latest dig
 brew "bind"
 brew "coreutils"
+brew "diffutils"
 brew "dos2unix"
 brew "findutils"
 brew "less"
