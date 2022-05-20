@@ -1,12 +1,13 @@
 [user]
     name = nitrocode
-    email = nitrocode@users.noreply.github.com
-    # signingkey
-[includeIf "gitdir:~/git/work"]
+    email = 7775707+nitrocode@users.noreply.github.com
+    signingkey = 54F726D192DEE2C1
+# NOTE: the trailing forward slash is crucial
+[includeIf "gitdir:~/git/work/"]
     path = ~/.gitconfig-work
-[includeIf "gitdir:~/git/personal/github"]
+[includeIf "gitdir:~/git/personal/github/"]
     path = ~/.gitconfig-personal-github
-[includeIf "gitdir:~/git/personal/gitlab"]
+[includeIf "gitdir:~/git/personal/gitlab/"]
     path = ~/.gitconfig-personal-gitlab
 [core]
     excludesfile = ~/.gitignore_global
