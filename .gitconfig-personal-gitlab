@@ -1,3 +1,4 @@
 [user]
-    name = 0xFEED
-    email = 0xFEED@users.noreply.gitlab.com
+	name = 0xFEED
+	email = 1468338-0xFEED@users.noreply.gitlab.com
+	signingkey = 2C2437A46ABA2107
