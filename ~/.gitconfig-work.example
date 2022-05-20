@@ -1,0 +1,4 @@
+[user]
+    name = example
+    email = 11111111+example@users.noreply.github.com
+    signingkey = 1234567890ABCDEF
