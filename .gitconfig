@@ -1,7 +1,3 @@
-[user]
-    name = nitrocode
-    email = 7775707+nitrocode@users.noreply.github.com
-    signingkey = 54F726D192DEE2C1
 # NOTE: the trailing forward slash is crucial
 [includeIf "gitdir:~/git/work/"]
     path = ~/.gitconfig-work
