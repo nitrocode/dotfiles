@@ -189,7 +189,7 @@ brew "xmlstarlet"
 # install dependencies of pyenv
 brew "readline"
 brew "xz"
-brew "pyenv"
+# brew "pyenv"
 # for easy python environments
 brew "pipenv"
 brew "poetry"
@@ -230,7 +230,7 @@ brew "packer"
 brew "s3cmd"
 # instead of terraform, install tf manager
 # this also reads .terraform-version files and auto switches unlike chtf
-brew "tfenv"
+# brew "tfenv"
 brew "tgenv"
 # get schema of terraform resources
 brew "tfschema"
