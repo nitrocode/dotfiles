@@ -346,7 +346,8 @@ brew "pre-commit"
 brew "asdf"
 
 # watch a file or dir of files and run a custom command if modified
-brew "inotify-tools"
+# brew "inotify-tools" # this is linux only
+brew "fswatch"
 
 # from brew dump and uncategorized
 brew "asciidoc"
