@@ -345,6 +345,9 @@ brew "pre-commit"
 # all *env instead of tfenv, rbenv, pyenv, etc
 brew "asdf"
 
+# watch a file or dir of files and run a custom command if modified
+brew "inotify-tools"
+
 # from brew dump and uncategorized
 brew "asciidoc"
 brew "cmake"
