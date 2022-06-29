@@ -18,8 +18,9 @@ cask "keybase"
 cask "slack"
 cask "zoom"
 # browsers
-cask "chromium"
-cask "google-chrome"
+# cask "chromium"
+# cask "google-chrome"
+cask "brave-browser"
 cask "firefox"
 # fb messenger
 #cask "goofy"
@@ -33,8 +34,8 @@ cask "visual-studio-code"
 # source control gui
 cask "sourcetree"
 # database
-cask "sqlworkbenchj"
-cask "mysqlworkbench"
+# cask "sqlworkbenchj"
+# cask "mysqlworkbench"
 # data visualization
 #cask "tableau-reader"
 # vms
@@ -96,6 +97,7 @@ cask "cheatsheet"
 cask "keepingyouawake"
 # vpn software to connect to multiple
 cask "tunnelblick"
+cask "protonvpn"
 # monospace font
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
@@ -118,8 +120,13 @@ cask "google-backup-and-sync"
 # cask "cyberduck"
 # screenshot
 cask "flameshot"
+# safely login to aws
+cask "leapp"
 
 ## brew cli tools ##
+
+# manage leapp
+brew "leapp-cli"
 
 # hit rest endpoints
 # pycurl requires this instead of the curl package
@@ -163,6 +170,7 @@ brew "docker-compose"
 brew "docker-machine"
 brew "xhyve"
 brew "docker-machine-driver-xhyve"
+brew "podman"
 # docker linter
 brew "hadolint"
 
@@ -217,6 +225,8 @@ brew "awscli"
 brew "awslogs"
 # athena querying
 brew "athenacli"
+# deep merging yaml to create tfvars
+brew "atmos"
 # scrape cloudtrail
 brew "trailscraper"
 # this will mount s3 buckets locally
@@ -224,6 +234,12 @@ cask "osxfuse"
 brew "goofys"
 # convert iam json to terraform
 brew "iam-policy-json-to-terraform"
+# create infrastructure diagrams
+brew "inframap"
+# edit any terraform using the cli
+brew "minamijoyo/hcledit/hcledit"
+# rego policy check using open policy agent
+brew "opa"
 # pack images
 brew "packer"
 # lots of command foo with s3
@@ -234,6 +250,8 @@ brew "s3cmd"
 brew "tgenv"
 # get schema of terraform resources
 brew "tfschema"
+# update terraform module and provider versions
+brew "minamijoyo/tfupdate/tfupdate"
 # generate terraform code
 brew "cdktf", args: ["ignore-dependencies"]
 # linters
@@ -252,6 +270,9 @@ brew "terraformer"
 brew "c7n"
 # policy_sentry
 # cloudsplaining
+
+# reverse url
+brew "ngrok"
 
 # shells
 brew "zsh"
@@ -276,7 +297,10 @@ brew "imagemagick"
 # compile tools
 brew "gcc"
 brew "go"
-brew "dep"
+# brew "dep"
+
+# templating
+brew "jinja2-cli"
 
 ## security
 # test totp tokens locally
@@ -323,6 +347,7 @@ brew "gpatch"
 brew "grep"
 brew "htop"
 brew "make"
+brew "moreutils"
 brew "tree"
 brew "watch"
 brew "rsync"
@@ -378,7 +403,7 @@ brew "libtool"
 brew "libunistring"
 brew "libusb"
 brew "libyaml"
-brew "moreutils"
+brew "mtr"
 brew "mpack"
 brew "mpfr"
 brew "ncdu"
@@ -408,3 +433,4 @@ brew "todo-txt"
 brew "trash"
 brew "wrk"
 brew "zeromq"
+brew "zip"
