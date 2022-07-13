@@ -6,7 +6,10 @@ cask_args appdir: "~/Applications"
 # xquartz dependency
 cask "xquartz"
 
-# some stuff is commented out because it may already be installed on the system
+## some stuff is commented out because it may already be installed on the system
+# keep monitor from sleeping
+# This is closer to the top so the laptop will be uninterrupted while this runs
+cask "keepingyouawake"
 # authenticator
 cask "authy"
 # password managers
@@ -93,8 +96,6 @@ cask "shapes"
 cask "clipy"
 # show keyboard shortcuts for apps
 cask "cheatsheet"
-# keep monitor from sleeping
-cask "keepingyouawake"
 # vpn software to connect to multiple
 cask "tunnelblick"
 cask "protonvpn"
