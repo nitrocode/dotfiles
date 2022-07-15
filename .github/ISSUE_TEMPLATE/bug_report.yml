@@ -6,17 +6,19 @@ body:
   - type: markdown
     attributes:
       value: |
-        Found a bug? Maybe our [Slack Community](https://slack.cloudposse.com) can help. 
+        Found a bug? Please checkout our [Slack Community](https://slack.cloudposse.com) or visit our [Slack Archive](https://archive.sweetops.com/).
 
         [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+
   - type: textarea
     id: concise-description
     attributes:
-      label: Concise Description
+      label: Describe the Bug
       description: A clear and concise description of what the bug is.
       placeholder: What is the bug about?
     validations:
       required: true
+
   - type: textarea
     id: expected
     attributes:
@@ -25,6 +27,7 @@ body:
       placeholder: What happened?
     validations:
       required: true
+
   - type: textarea
     id: reproduction-steps
     attributes:
@@ -33,6 +36,7 @@ body:
       placeholder: How do we reproduce it?
     validations:
       required: true
+
   - type: textarea
     id: screenshots
     attributes:
@@ -40,11 +44,12 @@ body:
       description: If applicable, add screenshots or logs to help explain your problem.
     validations:
       required: false
+
   - type: textarea
     id: environment
     attributes:
       label: Environment
-      description: Anything that will help us triage the bug will help.
+      description: Anything that will help us triage the bug.
       placeholder: |
         - OS: [e.g. Linux, OSX, WSL, etc]
         - Version [e.g. 10.15]
@@ -52,6 +57,7 @@ body:
         - Terraform version
     validations:
       required: false
+
   - type: textarea
     id: additional
     attributes:
