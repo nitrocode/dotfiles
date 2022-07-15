@@ -1,64 +1,38 @@
 ---
 name: Bug report
-description: Create a report to help us improve
-title: ""
-labels: ["bug"]
-assignees: [""]
-body:
-  - type: markdown
-    attributes:
-      value: |
-        Found a bug? Maybe our [Slack Community](https://slack.cloudposse.com) can help. 
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
-        [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
-  - type: textarea
-    id: concise-description
-    attributes:
-      label: Concise Description
-      description: A clear and concise description of what the bug is.
-      placeholder: What is the bug about?
-    validations:
-      required: true
-  - type: textarea
-    id: expected
-    attributes:
-      label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
-      placeholder: What happened?
-    validations:
-      required: true
-  - type: textarea
-    id: reproduction-steps
-    attributes:
-      label: Steps to Reproduce
-      description: Steps to reproduce the behavior.
-      placeholder: How do we reproduce it?
-    validations:
-      required: true
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: Screenshots
-      description: If applicable, add screenshots or logs to help explain your problem.
-    validations:
-      required: false
-  - type: textarea
-    id: environment
-    attributes:
-      label: Environment
-      description: Anything that will help us triage the bug will help.
-      placeholder: |
-        - OS: [e.g. Linux, OSX, WSL, etc]
-        - Version [e.g. 10.15]
-        - Module version
-        - Terraform version
-    validations:
-      required: false
-  - type: textarea
-    id: additional
-    attributes:
-      label: Additional Context
-      description: |
-        Add any other context about the problem here.
-    validations:
-      required: false
+---
+
+**Describe the bug**
+A clear and concise description of what the bug is.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
+
+**Expected behavior**
+A clear and concise description of what you expected to happen.
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
+
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
+
+**Additional context**
+Add any other context about the problem here.
