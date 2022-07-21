@@ -5,6 +5,15 @@
     path = ~/.gitconfig-personal-github
 [includeIf "gitdir:~/git/personal/gitlab/"]
     path = ~/.gitconfig-personal-gitlab
+# in case the https url is used in a git clone
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+# Use the gpg program to sign commits
+[gpg]
+    program = gpg
+# always sign commits
+[commit]
+    gpgsign = true
 [core]
     excludesfile = ~/.gitignore_global
     # pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
