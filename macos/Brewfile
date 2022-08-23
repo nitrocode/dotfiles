@@ -67,7 +67,7 @@ cask "force-paste"
 # firewall similar to little snitch
 cask "lulu"
 # window manager
-cask "spectacle"
+cask "rectangle"
 # remove ambient blue at night
 cask "flux"
 # disable monitor
