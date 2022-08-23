@@ -241,6 +241,7 @@ brew "iam-policy-json-to-terraform"
 # create infrastructure diagrams
 brew "inframap"
 # edit any terraform using the cli
+tap "minamijoyo/hcledit"
 brew "minamijoyo/hcledit/hcledit"
 # rego policy check using open policy agent
 brew "opa"
@@ -255,6 +256,7 @@ brew "tgenv"
 # get schema of terraform resources
 brew "tfschema"
 # update terraform module and provider versions
+tap "minamijoyo/tfupdate"
 brew "minamijoyo/tfupdate/tfupdate"
 # generate terraform code
 brew "cdktf", args: ["ignore-dependencies"]
@@ -273,6 +275,8 @@ brew "terraformer"
 # cloudcustodian
 brew "c7n"
 # policy_sentry
+tap "salesforce/policy_sentry"
+brew "policy_sentry"
 # cloudsplaining
 
 # reverse url
