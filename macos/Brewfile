@@ -126,6 +126,12 @@ cask "google-backup-and-sync"
 cask "flameshot"
 # safely login to aws
 cask "leapp"
+# k8s UIs
+## may need to pay for this one
+cask "lens"
+## a couple lens alternatives
+cask "kubenav"
+cask "octant"
 
 ## brew cli tools ##
 
@@ -277,7 +283,14 @@ brew "c7n"
 # policy_sentry
 tap "salesforce/policy_sentry"
 brew "policy_sentry"
-# cloudsplaining
+tap "salesforce/cloudsplaining"
+brew "cloudsplaining"
+# k8s
+brew "kubectl"
+## choose context
+brew "kubectx"
+## choose namespace
+brew "kubens"
 
 # reverse url
 brew "ngrok"
