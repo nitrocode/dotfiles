@@ -125,6 +125,7 @@ cask "google-backup-and-sync"
 # screenshot
 cask "flameshot"
 # safely login to aws
+## TODO: check out granted
 cask "leapp"
 # k8s UIs
 ## may need to pay for this one
@@ -137,6 +138,8 @@ cask "octant"
 
 # manage leapp
 brew "leapp-cli"
+tap "common-fate/granted"
+brew "granted"
 
 # hit rest endpoints
 # pycurl requires this instead of the curl package
