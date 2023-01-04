@@ -170,7 +170,7 @@ brew "remarshal"
 brew "duti"
 
 # rdesktop for rdp
-brew "rdesktop"
+# brew "rdesktop" # unmaintained
 
 # make oneliner sql readable
 brew "sqlparse"
@@ -183,8 +183,8 @@ brew "ffmpeg"
 brew "docker"
 brew "docker-compose"
 brew "docker-machine"
-brew "xhyve"
-brew "docker-machine-driver-xhyve"
+# brew "xhyve" # unmaintained
+# brew "docker-machine-driver-xhyve" # unmaintained
 brew "podman"
 # docker linter
 brew "hadolint"
@@ -283,7 +283,7 @@ brew "checkov"
 # module output doc automation
 brew "terraform-docs"
 # backporting terraform
-brew "terraforming"
+# brew "terraforming" # archived
 brew "terraformer"
 # cloudcustodian
 brew "c7n"
@@ -401,6 +401,9 @@ brew "asdf"
 # watch a file or dir of files and run a custom command if modified
 # brew "inotify-tools" # this is linux only
 brew "fswatch"
+
+# for testing
+brew "bats-core"
 
 # from brew dump and uncategorized
 brew "asciidoc"
