@@ -1,5 +1,5 @@
 # a lot of this came from brew bundle dump
-cask_args appdir: "~/Applications"
+# cask_args appdir: "~/Applications"
 # tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
 
 ## cask apps ##
@@ -72,8 +72,10 @@ cask "rectangle"
 cask "flux"
 # disable monitor
 cask "disablemonitor"
-# install different calendar
+# install different clock / calendar with a custom format
 cask "itsycal"
+# install different time zones like PT, MT, CT, ET, GMT, etc
+cask "clocker"
 # install js desktop widgets
 cask "ubersicht"
 # disk usage analyzer
@@ -192,6 +194,8 @@ brew "hadolint"
 brew "jq"
 # json paths
 brew "gron"
+# json viewer
+brew "fx"
 # jmespath
 tap "jmespath/jmespath"
 brew "jmespath/jmespath/jp"
