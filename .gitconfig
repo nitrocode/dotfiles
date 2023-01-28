@@ -7,7 +7,7 @@
     path = ~/.gitconfig-personal-gitlab
 # in case the https url is used in a git clone
 [url "git@github.com:"]
-  insteadOf = https://github.com/
+    insteadOf = https://github.com/
 # Use the gpg program to sign commits
 [gpg]
     program = gpg
