@@ -128,10 +128,17 @@ function loadkeysfun {
   loadkeys ~/.ssh/personal
 }
 
+# get ssl cert expiration information
+# sslcheck google.com
+function sslcheck {
+  openssl s_client -servername $1 -connect $1:443 | openssl x509 -noout -dates
+}
+
 #### source .rc_bma
 # https://github.com/bash-my-aws/bash-my-aws
 export PATH="$PATH:$HOME/.bash-my-aws/bin"
 source ~/.bash-my-aws/aliases
+source ~/.aliases_common
 
 # additional aws aliases and functions
 #export PATH="/usr/local/opt/libressl/bin:$PATH"
