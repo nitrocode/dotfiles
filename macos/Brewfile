@@ -1,6 +1,13 @@
 # a lot of this came from brew bundle dump
-# cask_args appdir: "~/Applications"
 # tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
+
+# These casks need to be installed in the global /Applications
+cask_args appdir: "/Applications"
+# install different time zones like PT, MT, CT, ET, GMT, etc
+cask "clocker"
+
+# These casks need to be installed in the user ~/Applications
+cask_args appdir: "~/Applications"
 
 ## cask apps ##
 # xquartz dependency
@@ -74,8 +81,6 @@ cask "flux"
 cask "disablemonitor"
 # install different clock / calendar with a custom format
 cask "itsycal"
-# install different time zones like PT, MT, CT, ET, GMT, etc
-cask "clocker"
 # install js desktop widgets
 cask "ubersicht"
 # disk usage analyzer
