@@ -1,28 +1,77 @@
+# Default identity for any directory not matched below
+[include]
+    path = ~/.gitconfig-work
+
 # NOTE: the trailing forward slash is crucial
 [includeIf "gitdir:~/git/work/"]
     path = ~/.gitconfig-work
+[includeIf "gitdir:~/.claude/plugins/marketplaces/"]
+    path = ~/.gitconfig-work
+
+
 [includeIf "gitdir:~/git/personal/github/"]
     path = ~/.gitconfig-personal-github
 [includeIf "gitdir:~/git/personal/gitlab/"]
     path = ~/.gitconfig-personal-gitlab
+
 # in case the https url is used in a git clone
 [url "git@github.com:"]
     insteadOf = https://github.com/
+
 # Use the gpg program to sign commits
 [gpg]
     program = gpg
+
 # always sign commits with gpg
 [commit]
     gpgsign = true
     verbose = true
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
 # always sign off
 [format]
     signoff = true
+[init]
+	defaultBranch = main
 [core]
     excludesfile = ~/.gitignore_global
     # pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
-# [interactive]
-#     diffFilter = delta --color-only
+
+[credential]
+	helper = store
+[url "https://user@hostname"]
+	insteadOf = ssh://git@hostname
+[url "https://x-access-token@github.com"]
+	insteadOf = ssh://git@github.com
+[url "https://x-access-token@127.0.0.1:49784"]
+	insteadOf = ssh://git@127.0.0.1:49784
+[url "https://x-access-token@some-host"]
+	insteadOf = ssh://git@some-host
+
+[pager]
+    diff = delta
+    show = delta
+    reflog = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[tag]
+	gpgSign = true
+[remote "origin"]
+	prune = true
+[fetch]
+	prune = true
+
+[gtr "ai"]
+	default = claude
+[difftool "difft"]
+	cmd = difft \"$LOCAL\" \"$REMOTE\"
 
 #[mergetool "sourcetree"]
 #    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
