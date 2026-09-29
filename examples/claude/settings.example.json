@@ -1,0 +1,549 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "opus",
+  "advisorModel": "claude-opus-5-5",
+  "effortLevel": "medium",
+  "outputStyle": "Concise",
+  "theme": "dark-ansi",
+  "tui": "fullscreen",
+  "editorMode": "normal",
+  "verbose": true,
+  "showThinkingSummaries": true,
+  "autoCompactEnabled": true,
+  "cleanupPeriodDays": 9999,
+  "feedbackSurveyRate": 0,
+  "statusLine": {
+    "type": "command",
+    "command": "ccusage-statusline",
+    "refreshInterval": 60
+  },
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "60",
+    "CLAUDE_AUTOCOMPACT_PCT": "60",
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+    "CLAUDE_CODE_ENABLE_FINE_GRAINED_TOOL_STREAMING": "1",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0",
+    "CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS": "5",
+    "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "5",
+    "CLAUDE_CODE_NEW_INIT": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "ENABLE_PROMPT_CACHING_1H": "1",
+    "MAX_MCP_OUTPUT_TOKENS": "40000",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "SLASH_COMMAND_TOOL_CHAR_BUDGET": "60000"
+  },
+  "awsAuthRefresh": "bash $CLAUDE_CONFIG_DIR/scripts/aws-auth-refresh.sh",
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(git:*)",
+      "Bash(atmos:*)",
+      "Bash(rtk:*)",
+      "Bash(gh:*)",
+      "Bash(terraform:*)",
+      "Bash(ls:*)",
+      "Bash(which:*)",
+      "Bash(gofmt:*)",
+      "Bash(icalBuddy:*)",
+      "Bash(opa:*)",
+      "Bash(actionlint:*)",
+      "Bash(shellcheck:*)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "mcp__claude_ai_Notion__notion-search",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "mcp__claude_ai_Notion__notion-get-comments",
+      "mcp__claude_ai_Notion__notion-get-teams",
+      "mcp__claude_ai_Notion__notion-get-users",
+      "mcp__claude_ai_Notion__notion-query-data-sources",
+      "mcp__claude_ai_Notion__notion-query-meeting-notes",
+      "mcp__claude_ai_Google_Calendar__list_events",
+      "mcp__claude_ai_Google_Calendar__list_calendars",
+      "mcp__claude_ai_Google_Calendar__get_event",
+      "mcp__claude_ai_Google_Calendar__suggest_time",
+      "mcp__claude_ai_google-workspace__calendar_list",
+      "mcp__claude_ai_google-workspace__calendar_listEvents",
+      "mcp__claude_ai_google-workspace__calendar_getEvent",
+      "mcp__claude_ai_google-workspace__calendar_findFreeTime",
+      "mcp__claude_ai_google-workspace__chat_listSpaces",
+      "mcp__claude_ai_google-workspace__chat_listThreads",
+      "mcp__claude_ai_google-workspace__chat_getMessages",
+      "mcp__claude_ai_google-workspace__chat_findDmByEmail",
+      "mcp__claude_ai_google-workspace__chat_findSpaceByName",
+      "mcp__claude_ai_google-workspace__docs_getText",
+      "mcp__claude_ai_google-workspace__docs_getSuggestions",
+      "mcp__claude_ai_google-workspace__docs_extractIdFromUrl",
+      "mcp__claude_ai_google-workspace__drive_search",
+      "mcp__claude_ai_google-workspace__drive_getComments",
+      "mcp__claude_ai_google-workspace__drive_findFolder",
+      "mcp__claude_ai_google-workspace__drive_downloadFile",
+      "mcp__claude_ai_google-workspace__gmail_search",
+      "mcp__claude_ai_google-workspace__gmail_get",
+      "mcp__claude_ai_google-workspace__gmail_listLabels",
+      "mcp__claude_ai_google-workspace__gmail_downloadAttachment",
+      "mcp__claude_ai_google-workspace__people_getMe",
+      "mcp__claude_ai_google-workspace__people_getUserProfile",
+      "mcp__claude_ai_google-workspace__people_getUserRelations",
+      "mcp__claude_ai_google-workspace__sheets_getMetadata",
+      "mcp__claude_ai_google-workspace__sheets_getRange",
+      "mcp__claude_ai_google-workspace__sheets_getText",
+      "mcp__claude_ai_google-workspace__slides_getImages",
+      "mcp__claude_ai_google-workspace__slides_getMetadata",
+      "mcp__claude_ai_google-workspace__slides_getSlideThumbnail",
+      "mcp__claude_ai_google-workspace__slides_getText",
+      "mcp__claude_ai_google-workspace__time_getCurrentDate",
+      "mcp__claude_ai_google-workspace__time_getCurrentTime",
+      "mcp__claude_ai_google-workspace__time_getTimeZone",
+      "mcp__playwright-visible__browser_snapshot",
+      "mcp__playwright-visible__browser_network_requests",
+      "mcp__nightfall__search_exfiltration_events",
+      "mcp__nightfall__search_posture_events",
+      "Bash(pytest *)",
+      "Bash(.venv/bin/pytest *)",
+      "Bash(make snapshot)",
+      "Bash(make setup)",
+      "Bash(bash -n *)",
+      "Bash(xattr -l *)",
+      "Bash(command -v *)",
+      "Bash(yq *)",
+      "Bash(yamllint *)",
+      "Bash(go vet *)",
+      "Bash(go test *)",
+      "Bash(brew style *)",
+      "Bash(sdm status *)",
+      "Bash(granted sso populate)",
+      "Bash(aws configure list-profiles)",
+      "Bash(aws sts get-caller-identity)",
+      "Bash(aws dynamodb scan *)",
+      "Bash(aws dynamodb describe-table *)",
+      "Bash(aws dynamodb list-tables *)",
+      "Bash(aws ec2 describe-security-group-rules *)",
+      "Bash(aws iam get*)",
+      "Bash(op account list *)",
+      "Bash(op item list *)",
+      "Bash(op vault list *)",
+      "Bash(claude mcp list *)",
+      "Bash(coderabbit review *)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sort:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(tree:*)",
+      "Bash(mkdir -p:*)",
+      "Bash(python -c:*)",
+      "Bash(python3 -c:*)",
+      "Bash(sleep:*)",
+      "Bash(jq:*)",
+      "Bash(echo:*)",
+      "Bash(env:*)",
+      "Bash(date:*)",
+      "Bash(diff:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(asdf:*)",
+      "Bash(brew search:*)",
+      "Bash(brew info:*)",
+      "Bash(brew list:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker images:*)",
+      "Bash(docker inspect:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl describe:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(npm list:*)",
+      "Bash(pip list:*)",
+      "Bash(pip show:*)",
+      "Bash(go version:*)",
+      "Bash(go env:*)",
+      "Bash(op whoami)",
+      "Bash(ccusage:*)",
+      "Bash(npx ccusage:*)",
+      "Bash(lms:*)",
+      "Bash(assume readonly-root)",
+      "Bash(assume -l)",
+      "Bash(claude mcp get *)",
+      "Bash(fd:*)",
+      "Bash(fzf:*)",
+      "Bash(bat:*)",
+      "Bash(ncdu:*)",
+      "Bash(dig:*)",
+      "Bash(whois:*)",
+      "Bash(mtr:*)",
+      "Bash(awslogs:*)",
+      "Bash(kubectx:*)",
+      "Bash(kubens:*)",
+      "Bash(kustomize:*)",
+      "Bash(dive:*)",
+      "Bash(kor:*)",
+      "Bash(kube-linter:*)",
+      "Bash(tflint:*)",
+      "Bash(tfsec:*)",
+      "Bash(checkov:*)",
+      "Bash(infracost:*)",
+      "Bash(inframap:*)",
+      "Bash(semgrep:*)",
+      "Bash(hadolint:*)",
+      "Bash(trivy:*)",
+      "Bash(golangci-lint:*)",
+      "Bash(regal:*)",
+      "Bash(checkmake:*)",
+      "Bash(oathtool:*)",
+      "Bash(mmdc:*)",
+      "Bash(csvlook:*)",
+      "Bash(csvgrep:*)",
+      "Bash(csvjoin:*)",
+      "Bash(in2csv:*)",
+      "Bash(gron:*)",
+      "Bash(jc:*)",
+      "Bash(hcl2json:*)",
+      "Bash(xmlstarlet:*)",
+      "Bash(remarshal:*)",
+      "Bash(jd:*)",
+      "mcp__playwright-visible__browser_navigate",
+      "mcp__playwright-visible__browser_find",
+      "mcp__playwright-visible__browser_take_screenshot",
+      "mcp__claude_ai_Barndoor__generate_session_id",
+      "mcp__claude_ai_Barndoor__help",
+      "mcp__claude_ai_Gmail__search_threads",
+      "mcp__claude_ai_Google_Drive__read_file_content",
+      "mcp__claude_ai_Google_Drive__search_files",
+      "mcp__claude_ai_Zoom_for_Claude__search_meetings",
+      "mcp__claude_ai_Slack__slack_read_thread",
+      "mcp__claude_ai_Slack__slack_search_public_and_private",
+      "mcp__claude_ai_Slack__slack_search_users",
+      "mcp__claude_ai_Slack__slack_search_channels",
+      "mcp__claude_ai_Slack__slack_read_channel",
+      "mcp__claude_ai_Slack__slack_read_user_profile",
+      "mcp__github__get_file_contents",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(pip install:*)",
+      "Bash(pip uninstall:*)",
+      "Bash(brew install:*)",
+      "Bash(brew uninstall:*)",
+      "Bash(brew upgrade:*)",
+      "Bash(mv:*)",
+      "Bash(cd:*)",
+      "Bash(python3:*)",
+      "Bash(npx:*)",
+      "Bash(bash:*)",
+      "Bash(curl:*)"
+    ],
+    "ask": [
+      "Bash(chmod:*)",
+      "Bash(chown:*)",
+      "Bash(chgrp:*)",
+      "Bash(kill:*)",
+      "Bash(killall:*)",
+      "Bash(pkill:*)",
+      "Bash(mkfs:*)",
+      "Bash(dd:*)",
+      "Bash(sudo:*)",
+      "Bash(wget*|*sh)",
+      "Bash(git checkout --:*)",
+      "Bash(git clean:*)",
+      "Bash(git branch -D:*)",
+      "Bash(rtk run:*)",
+      "Bash(rtk proxy:*)",
+      "Bash(curl*|*sh)",
+      "Bash(terraform apply:*)",
+      "Bash(atmos terraform apply:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)"
+    ],
+    "deny": [
+      "Edit(.env)",
+      "Edit(.envrc)",
+      "Edit(**/.git/**)",
+      "Edit(**/secrets/**)",
+      "mcp__claude_ai_Slack__slack_send_message",
+      "mcp__claude_ai_Slack__slack_schedule_message",
+      "mcp__plugin_slack_slack__slack_send_message",
+      "mcp__plugin_slack_slack__slack_schedule_message",
+      "mcp__datadog__*",
+      "mcp__playwright__*",
+      "mcp__playwright-visible__*",
+      "mcp__*"
+    ]
+  },
+  "sandbox": {
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowedDomains": [
+        "registry.npmjs.org",
+        "npmjs.org",
+        "npm.org",
+        "registry.npmjs.com",
+        "npm.pkg.github.com",
+        "cdn.jsdelivr.net",
+        "cdnjs.cloudflare.com",
+        "code.jquery.com",
+        "github.com",
+        "api.github.com",
+        "raw.githubusercontent.com",
+        "pypi.org",
+        "registry.terraform.io",
+        "registry.yarnpkg.com",
+        "crates.io",
+        "docs.anthropic.com",
+        "api.anthropic.com",
+        "releases.hashicorp.com",
+        "download.docker.com",
+        "docker.io",
+        "registry.docker.com",
+        "index.docker.io",
+        "ghcr.io",
+        "quay.io",
+        "goproxy.io",
+        "pkg.go.dev",
+        "golang.org",
+        "download.golang.org",
+        "proxy.golang.org",
+        "sum.golang.org",
+        "storage.googleapis.com",
+        "get.helm.sh",
+        "raw.helm.sh",
+        "registry.k8s.io",
+        "amazon.com",
+        "amazonaws.com"
+      ]
+    },
+    "ignoreViolations": {
+      "*": [
+        "~/.claude/",
+        "~/.aws/cache/",
+        "~/.aws/sso/",
+        "~/.terraform.d/",
+        "~/.config/acli/",
+        "~/Library/Application Support/rtk/"
+      ]
+    },
+    "enableWeakerNetworkIsolation": true,
+    "excludedCommands": [
+      "go",
+      "terraform",
+      "atmos",
+      "claude"
+    ]
+  },
+  "enabledPlugins": {
+    "cc-hooks-plugin@cc-hooks-plugin": false,
+    "claude-code-setup@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": false,
+    "claude-mem@thedotmack": false,
+    "code-review@claude-plugins-official": false,
+    "commit-commands@claude-plugins-official": false,
+    "frontend-design@claude-plugins-official": false,
+    "github@claude-plugins-official": false,
+    "gopls-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": false,
+    "pr-review-toolkit@claude-plugins-official": false,
+    "ralph-loop@claude-plugins-official": false,
+    "security-guidance@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": false,
+    "slack@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": false,
+    "superpowers@superpowers-marketplace": true,
+    "coderabbit@claude-plugins-official": true,
+    "slackcli@slackcli": true
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/notify-attention.sh permission_prompt"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/notify-attention.sh idle_prompt"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/bad-flag-error-detect.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/format-yaml.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/chmod-preserve.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/lint-on-write.sh",
+            "timeout": 8
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/gha-latest-sha-check.sh",
+            "timeout": 20
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/renovate-annotation-check.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/block-dangerous.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/confirm-dialog-multi.sh --pattern 'terraform[[:space:]]+(apply|destroy)' --reason 'Modifies or destroys Terraform-managed infrastructure' --pattern '(^|[;&|][[:space:]]*)kubectl[[:space:]]+delete' --reason 'Deletes Kubernetes resources' --pattern '(^|[;&|][[:space:]]*)aws[[:space:]].*[[:space:]](delete-|terminate-|destroy-|rm[[:space:]])' --reason 'Destroys AWS resources'",
+            "timeout": 300
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/rm-confirm.sh",
+            "timeout": 300
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/bulk-op-preflight.sh",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/noisy-command-warn.sh",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/secret-scan-block.sh",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/known-bad-flag-block.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/scope-guard.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $CLAUDE_CONFIG_DIR/hooks/no-em-dashes-pretool.py",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/preflight-check.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/config-change-context-nudge.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/notify-done.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/session-ledger-check.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "python3 $CLAUDE_CONFIG_DIR/hooks/otel-trace.py Stop"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/speak-summary.sh",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/skill-suggest.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/prompt-ambiguity-nudge.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_CONFIG_DIR/hooks/model-effort-switch-warn.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

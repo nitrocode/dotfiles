@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# visibility: public
+# prepare-commit-msg — auto-append ticket trailer + warn on non-Conventional Commits subject.
+#
+# Install once globally:
+#   git config --global core.hooksPath ~/.claude/git-hooks
+#
+# Behavior:
+#   1. Detects ticket pattern `[A-Z]+-[0-9]+` in current branch name.
+#   2. Appends `Refs: <TICKET>` trailer via `git interpret-trailers` (idempotent).
+#   3. Warns to stderr if subject does not match Conventional Commits. Does NOT block.
+#   4. Skips merges, squashes, amends with explicit message, and protected branches.
+#
+# Config overrides (export before commit, or set per-repo via git config):
+#   SKIP_TICKET=1                 -> do not append ticket trailer
+#   SKIP_CC_WARN=1                -> do not warn on Conventional Commits format
+#   TICKET_PATTERN='[A-Z]+-[0-9]+' -> override ticket regex
+#   PROTECTED_BRANCHES_REGEX='^(main|master|develop|staging|production|release/.*|hotfix/.*)$'
+#
+# Iterate: edit this file. Effect is immediate for new commits.
+
+set -uo pipefail
+
+COMMIT_MSG_FILE="${1:-}"
+COMMIT_SOURCE="${2:-}"
+
+[ -z "$COMMIT_MSG_FILE" ] && exit 0
+[ ! -f "$COMMIT_MSG_FILE" ] && exit 0
+
+case "$COMMIT_SOURCE" in
+  merge|squash) exit 0 ;;
+esac
+
+BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+PROTECTED_BRANCHES_REGEX="${PROTECTED_BRANCHES_REGEX:-^(main|master|develop|staging|production|release/.*|hotfix/.*)$}"
+
+# --- 1. Ticket trailer ---
+if [ "${SKIP_TICKET:-0}" != "1" ] && [ -n "$BRANCH" ] && ! echo "$BRANCH" | grep -qE "$PROTECTED_BRANCHES_REGEX"; then
+  TICKET_PATTERN="${TICKET_PATTERN:-[A-Z]+-[0-9]+}"
+  TICKET=$(echo "$BRANCH" | grep -oE "$TICKET_PATTERN" | head -1)
+  if [ -n "$TICKET" ]; then
+    # Skip if the exact ticket already appears in the message (anywhere)
+    if ! grep -qF "$TICKET" "$COMMIT_MSG_FILE" 2>/dev/null; then
+      git interpret-trailers --in-place --if-exists addIfDifferent \
+          --trailer "Refs: $TICKET" "$COMMIT_MSG_FILE" 2>/dev/null || true
+    fi
+  fi
+fi
+
+# --- 2. Conventional Commits warning ---
+if [ "${SKIP_CC_WARN:-0}" != "1" ]; then
+  SUBJECT=$(grep -v '^#' "$COMMIT_MSG_FILE" 2>/dev/null | sed '/^$/d' | head -1)
+  if [ -n "$SUBJECT" ]; then
+    CC_REGEX='^(feat|fix|chore|docs|refactor|test|perf|style|build|ci|revert)(\([^)]+\))?!?: .+'
+    if ! echo "$SUBJECT" | grep -qE "$CC_REGEX"; then
+      printf "\n" >&2
+      printf "  conventional-commits: subject does not match expected format.\n" >&2
+      printf "    expected: <type>(<scope>)?: <subject>\n" >&2
+      printf "    types:    feat|fix|chore|docs|refactor|test|perf|style|build|ci|revert\n" >&2
+      printf "    got:      %s\n" "$SUBJECT" >&2
+      printf "  proceeding (warning only). set SKIP_CC_WARN=1 to silence.\n\n" >&2
+    fi
+  fi
+fi
+
+exit 0

@@ -1,0 +1,34 @@
+{
+  "_visibility": "public",
+  "topic": "extraction-skill",
+  "version": "1.0.0",
+  "created": "2026-04-17",
+  "score": {
+    "total": 125,
+    "dimensions": {
+      "clarity": 9,
+      "structural_specifics": 9,
+      "quality_bar": 8,
+      "org_context": 7,
+      "audience": 8,
+      "content_scope": 8,
+      "first_customer": 8,
+      "auth_model": 8,
+      "auto_update": 8,
+      "deliverable_boundary": 9,
+      "rubric_provided": 8,
+      "stopping_criterion": 9,
+      "token_cost_expectation": 8,
+      "self_feedback_meta": 8,
+      "reusability": 10
+    }
+  },
+  "use_cases": [
+    "/distill \u2014 extract reusable prompt templates from prompts",
+    "/capture-spec \u2014 extract reusable specs from architecture/design conversations",
+    "/snapshot-adr \u2014 capture Architecture Decision Records from technical discussions",
+    "/extract-pattern \u2014 save reusable code patterns from code reviews",
+    "/save-playbook \u2014 distill incident runbooks from post-mortem sessions"
+  ],
+  "notes": "Distilled from /distill SKILL.md itself. Meta-template for the extract-score-save skill pattern."
+}

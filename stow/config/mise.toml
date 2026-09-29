@@ -1,0 +1,17 @@
+[tools]
+1password = "latest"
+node = "24.21.0"
+python = "latest"
+golang = "latest"
+opa = "latest"
+conftest = "latest"
+atmos = "latest"
+# "npm:headroom-ai" = "latest"
+# uv = "latest"
+# "pypi:headroom-ai[all]" = { version = "latest", uvx_args = ["--python", "3.13"] }
+
+[env]
+NODE_ENV = "development"
+
+[tasks.hello]
+run = "node --eval 'console.log(process.env.NODE_ENV)'"

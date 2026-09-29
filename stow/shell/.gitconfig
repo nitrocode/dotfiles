@@ -7,41 +7,30 @@
     path = ~/.gitconfig-work
 [includeIf "gitdir:~/.claude/plugins/marketplaces/"]
     path = ~/.gitconfig-work
-
-
 [includeIf "gitdir:~/git/personal/github/"]
+    path = ~/.gitconfig-personal-github
+[includeIf "gitdir:~/go/"]
     path = ~/.gitconfig-personal-github
 [includeIf "gitdir:~/git/personal/gitlab/"]
     path = ~/.gitconfig-personal-gitlab
-
-# in case the https url is used in a git clone
 [url "git@github.com:"]
     insteadOf = https://github.com/
-
-# Use the gpg program to sign commits
 [gpg]
-    program = gpg
-
-# always sign commits with gpg
+	program = gpg
 [commit]
-    gpgsign = true
-    verbose = true
+	gpgSign = true
 [credential "https://github.com"]
-	helper =
+	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper =
+	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
-
-# always sign off
 [format]
-    signoff = true
+	signoff = true
 [init]
 	defaultBranch = main
 [core]
-    excludesfile = ~/.gitignore_global
-    # pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
-
+	autocrlf = false
 [credential]
 	helper = store
 [url "https://user@hostname"]
@@ -60,22 +49,21 @@
 
 [interactive]
     diffFilter = delta --color-only
-
 [tag]
 	gpgSign = true
 [remote "origin"]
 	prune = true
 [fetch]
 	prune = true
-
 [gtr "ai"]
 	default = claude
 [difftool "difft"]
 	cmd = difft \"$LOCAL\" \"$REMOTE\"
+[pull]
+	ff = only
+	rebase = false
 
-#[mergetool "sourcetree"]
-#    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-#    trustExitCode = true
-#[difftool "sourcetree"]
-#    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-#    path =
+# private, machine/org-specific overrides (never committed). Must stay last so
+# its includeIf rules win over the broader ones above.
+[include]
+    path = ~/.gitconfig.local

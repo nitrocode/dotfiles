@@ -18,14 +18,3 @@ plugin "aws" {
 rule "terraform_standard_module_structure" {
   enabled = false
 }
-
-rule "aws_resource_missing_tags" {
-  enabled = false
-  exclude = [
-    # this is covered by the propagation already
-    "aws_autoscaling_group",
-    # this has to be enabled on the account level which may break things
-    "aws_ecs_service"
-  ]
-  #tags = [""]
-}

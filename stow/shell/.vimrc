@@ -28,7 +28,3 @@ if has("autocmd")
     autocmd FileType make   set noexpandtab
 
 endif
-
-" Fix arrow keys in windows " source:
-" https://unix.stackexchange.com/a/403734/117470
-set term=ansi
