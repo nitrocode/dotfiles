@@ -1,5 +1,5 @@
 ---
-description: Cite evidence for infra/ticket-state claims; re-derive risk claims before approving; verify authorship before attributing
+description: Cite evidence for infra/ticket-state claims; re-derive risk claims before approving; verify authorship before attributing; confirm a draft answers the actual ask before presenting it
 visibility: public
 ---
 
@@ -33,6 +33,14 @@ Insights review (2026-08-02) found a recurring pattern: a confident claim shippe
 - Know which services CloudTrail can even log before treating an absence of events as evidence of inactivity. Data events only exist for `AWS::S3::Object`, `AWS::Lambda::Function`, `AWS::DynamoDB::Table`; Kinesis and several other services' data-plane calls are structurally unloggable, no config change fixes that.
 - For IAM Access Advisor, read the per-action `TrackedActionsLastAccessed[].LastAccessedTime`, not the parent `LastAuthenticated`. The service-level field updates on any action in that service, tracked or not, and can show "today" while the specific action you're citing was last used months ago.
 - See `reference_aws_credential_usage_investigation` memory for the full ordered checklist.
+
+## Verify the draft addresses the actual ask
+
+Before presenting any drafted artifact (Slack message, Confluence/Notion page, Jira comment, PR reply, status update), restate in one line the specific problem or question the requester (ticket reporter, thread author, PR commenter, meeting action item owner) actually raised, then rate whether the draft answers it: `directly`, `partially`, or `misses it`.
+
+- If `partially` or `misses it`, say so plainly alongside the draft rather than presenting it with unearned confidence. Fix it first if the gap is obvious; flag it if the gap requires a judgment call only the user can make.
+- This is a relevance check, not a rewrite of the evidence rule above: a draft can be fully evidence-backed and still not answer what was actually asked.
+- Skip only for drafts with no originating question (a self-initiated announcement, a proactive status update nobody asked for).
 
 **Why**: a Cycode PR review misattributed the user's own 👀 reactions as a colleague's input and nearly got recommended for approval before the risk claims were independently checked; a Confluence page shipped with unverified claims and needed a follow-up audit.
 

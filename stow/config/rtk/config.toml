@@ -1,0 +1,118 @@
+[tracking]
+enabled = true
+history_days = 90
+
+[display]
+colors = true
+emoji = true
+max_width = 120
+
+[filters]
+ignore_dirs = [
+    ".git", "node_modules", "target", "__pycache__", ".venv", "vendor",
+    ".terraform", ".gradle", ".maven",    # infrastructure/build caches
+    "dist", "build", ".next", ".nuxt",    # build output
+    "coverage", ".pytest_cache",          # test artifacts
+]
+ignore_files = [
+    "*.lock", "*.min.js", "*.min.css",
+    "*.log",                               # log files
+    ".env*",                               # secrets
+]
+
+[tee]
+# Off since 2026-08-09: avoids writing unredacted secrets/tokens/PII from failed
+# command output to disk. Matches the config used in the org eval. Independent of
+# [tracking] below, disabling this does NOT stop parse_failures/commands logging,
+# confirmed live: a real parse failure was still logged with tee off, no tee/ file
+# was written. tune-rtk audits remain fully possible with tee off.
+enabled = false
+mode = "failures"
+max_files = 20
+max_file_size = 1048576
+
+[telemetry]
+enabled = false
+consent_given = false
+consent_date = "2026-04-30T05:22:02.178490+00:00"
+
+[retriever]
+mode = "sqlite"
+max_entry_bytes = 10485760
+max_entries = 200
+retention_days = 90
+compression = true
+tee_max_files = 20
+tee_max_file_size = 1048576
+tee_on_success = false
+
+[hooks]
+exclude_commands = [
+    # Flag collision: grep -l clashes with rtk's own -l/--max-len flag
+    # Verified: grep -rn, grep --files-with-matches still work normally
+    # https://github.com/rtk-ai/rtk/issues/1604
+    "^grep -l\\b",
+
+    # No RTK subcommand: 237 parse failures, unrecognized subcommand error
+    # https://github.com/rtk-ai/rtk/issues/1364
+    "^jq\\b",
+
+    # No RTK subcommand: 79 parse failures, context-aware (needs git repo detection)
+    # https://github.com/rtk-ai/rtk/issues/3489
+    "^pre-commit\\b",
+
+    # No RTK subcommand: 33 parse failures
+    # https://github.com/rtk-ai/rtk/issues/3487
+    "^make\\b",
+
+    # No RTK subcommand: 25 parse failures
+    "^shellcheck\\b",
+
+    # No RTK subcommand: 6 parse failures
+    "^ssh-add\\b",
+]
+
+# exclude_commands = [
+    # REGEX (narrow, not a blanket grep exclusion): targets only `grep -l`,
+    # which collides with rtk's own -l/--max-len flag (#1604/#1833, both open
+    # upstream). Verified live: grep -rn, grep --files-with-matches, and every
+    # other grep invocation still route through rtk normally.
+#     "^grep -l\\b",
+    # REGEX: exclude only `pre-commit run` subcommand (87 successes, ~150 failures).
+    # Keeps `pre-commit install`, `pre-commit --version` working.
+    # https://github.com/rtk-ai/rtk/issues/3489
+#     "^pre-commit run\\b",
+    # REGEX: exclude specific make targets with known issues (55 successes, ~20 failures).
+    # Other make invocations still work.
+    # https://github.com/rtk-ai/rtk/issues/3487
+#     "^make (check|lint|merge|dist|docker|schema|help|dev-install|sync)\\b",
+    # REGEX: exclude jq validation and version checks (208 successes, ~200 failures).
+    # Most failures are `jq -e .` and `jq --version`. Other queries still work.
+    # https://github.com/rtk-ai/rtk/issues/1364
+#     "^jq( -e \\.\\b| --version\\b)",
+    # REGRESSION, orig fix in v0.30.0 (#182), broken again on v0.45.0
+    # https://github.com/rtk-ai/rtk/issues/3484
+#     "helm",
+    # No issue filed: low signal, deliberately skipped
+#     "yamllint",
+    # https://github.com/rtk-ai/rtk/issues/3490
+#     "brew",
+    # REGRESSION, orig fix in v0.30.0 (#183), broken again on v0.45.0
+    # https://github.com/rtk-ai/rtk/issues/3485
+#     "gcloud",
+    # https://github.com/rtk-ai/rtk/issues/659 (pre-existing, 👍 reacted not filed)
+#     "bundle",
+    # https://github.com/rtk-ai/rtk/issues/3491
+#     "sort",
+# ]
+transparent_prefixes = []
+
+[limits]
+grep_max_results = 500      # was 200 — capture more grep results
+grep_max_per_file = 25
+status_max_files = 30       # was 15 — handle repos with more changes
+status_max_untracked = 10
+passthrough_max_chars = 5000 # was 2000 — compress more output before giving up
+
+[awareness]
+level = "default"

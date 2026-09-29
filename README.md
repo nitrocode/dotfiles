@@ -10,7 +10,7 @@ Managed with [GNU Stow](https://www.gnu.org/software/stow/). Each directory unde
 |---|---|---|
 | `stow/shell` | `~` | `.zshrc`, `.zshenv`, `.gitconfig`, `.vimrc`, `.curlrc`, `.nanorc`, `.gitignore_global`, `.tflint.hcl` |
 | `stow/claude` | `$CLAUDE_CONFIG_DIR` (physical path) | generic Claude Code hooks, rules, scripts, prompts, agents, git-hooks |
-| `stow/config` | `~/.config` | `mise.toml`, `git/ignore`, `gh-dash/`, `codexbar/` |
+| `stow/config` | `~/.config` | `mise.toml`, `git/ignore`, `gh-dash/`, `codexbar/`, `rtk/` |
 
 `examples/claude/settings.example.json` shows a sanitized Claude Code `settings.json`. It's a reference, not stowed.
 
