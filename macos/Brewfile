@@ -470,3 +470,411 @@ brew "trash"
 brew "wrk"
 brew "zeromq"
 brew "zip"
+
+## merged in from laptop Brewfile (~/Brewfile) to combine the two setups ##
+
+# taps needed by the formulae below
+tap "atlassian/acli"
+tap "charmbracelet/tap"
+tap "coderabbitai/tap"
+tap "cortexapps/tap"
+tap "derailed/popeye"
+tap "goodwithtech/r"
+tap "kovetskiy/mark"
+tap "lightpanda-io/browser", "https://github.com/lightpanda-io/homebrew-browser"
+tap "phuryn/claude-usage", "https://github.com/phuryn/claude-usage"
+tap "schappim/ocr"
+tap "thecasualcoder/stable"
+
+# Run your GitHub Actions locally
+brew "act"
+# Generate docs for GitHub actions
+brew "action-docs"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
+# CLI tool for working with Architecture Decision Records
+brew "adr-tools"
+# GitOps Continuous Delivery for Kubernetes
+brew "argocd"
+# Code searching, linting, rewriting
+brew "ast-grep"
+# Software to interact with Atlassian Cloud from the terminal
+brew "atlassian/acli/acli"
+# Nuke a whole AWS account and delete all its resources
+brew "aws-nuke"
+# Smooth out the rough edges of AWS SSO
+brew "aws-sso-util"
+# Securely connect to RDS, Elasticache, and other AWS resources in VPCs
+brew "basti"
+# Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
+brew "buildkit"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
+# CLI tool for analyzing Claude Code usage from local JSONL files
+brew "ccusage"
+# C Foreign Function Interface for Python
+brew "cffi"
+# Validate CloudFormation templates against the CloudFormation spec
+brew "cfn-lint"
+# Generate images of code and terminal output
+brew "charmbracelet/tap/freeze"
+# Testing and linting Helm charts
+brew "chart-testing"
+# Linter/analyzer for Makefiles
+brew "checkmake"
+# CLI tool for configuring and monitoring Claude Code
+brew "claude-code-templates"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Git worktree manager with editor and AI tool integration
+brew "coderabbitai/tap/git-gtr"
+# Test your configuration files using Open Policy Agent
+brew "conftest"
+# Command-line Interface for Cortexapps
+brew "cortexapps/tap/cortexapps-cli"
+# Suite of command-line tools for converting to and working with CSV
+brew "csvkit"
+# Get a file from an HTTP, HTTPS or FTP server (plain curl, alongside curl-openssl)
+brew "curl"
+# Diff that understands syntax
+brew "difftastic"
+# Lightweight DNS forwarder and DHCP server
+brew "dnsmasq"
+# Docker Credential Helper for Amazon ECR
+brew "docker-credential-helper-ecr"
+# Text processing system for reStructuredText
+brew "docutils"
+# Embeddable SQL OLAP Database Management System
+brew "duckdb"
+# More intuitive version of du in rust
+brew "dust"
+# Simple command-line tool for creating clusters on Amazon EKS
+brew "eksctl"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
+# Automatic git commit --fixup
+brew "git-absorb"
+# Audit git repos for secrets
+brew "gitleaks"
+# Open-source GitLab command-line tool
+brew "glab"
+# Core application library for C
+brew "glib"
+# Render markdown on the CLI
+brew "glow"
+# Reverse tethering tool for Android
+brew "gnirehtet"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# Fast linters runner for Go
+brew "golangci-lint"
+# Command-line Golang template processor
+brew "gomplate"
+# Simple security auditing, helping build the Best Docker Images
+brew "goodwithtech/r/dockle"
+# CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
+brew "googleworkspace-cli"
+# Deliver Go binaries as fast and easily as possible
+brew "goreleaser"
+# Library access to GnuPG
+brew "gpgme"
+# GNU triangulated surface library
+brew "gts"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Convert HCL2 to JSON
+brew "hcl2json"
+# Kubernetes package manager
+brew "helm"
+# Cost estimates for Terraform, Terragrunt, and CloudFormation
+brew "infracost"
+# Serializes the output of command-line tools to structured JSON output
+brew "jc"
+# JSON diff and patch
+brew "jd"
+# Manage your Java environment
+brew "jenv"
+# Interactive JSON filter using jq
+brew "jnv"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# Code coverage tester for compiled programs, Python, and shell scripts
+brew "kcov"
+# CLI tool to discover unused Kubernetes resources
+brew "kor"
+# Network authentication protocol
+brew "krb5"
+# Package manager for kubectl plugins
+brew "krew"
+# Static analysis tool for Kubernetes YAML files and Helm charts
+brew "kube-linter"
+# Kubernetes prompt info for bash and zsh
+brew "kube-ps1"
+# Template-free customization of Kubernetes YAML manifests
+brew "kustomize"
+# Library for encoding and decoding .avif files
+brew "libavif"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
+# Library to render SVG files using Cairo
+brew "librsvg"
+# C library SSHv1/SSHv2 client and server protocols
+brew "libssh"
+# XML security library
+brew "libxmlsec1"
+# Headless browser for AI agents and automation (nightly build)
+brew "lightpanda-io/browser/lightpanda"
+# Sync your markdown files with Confluence pages
+brew "mark"
+# Java-based project management
+brew "maven"
+# CLI utility that generates PDF from Markdown
+brew "md2pdf"
+# CLI for Mermaid library
+brew "mermaid-cli"
+# Run a Kubernetes cluster locally
+brew "minikube"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Open source relational database management system
+brew "mysql-client"
+brew "mysql@8.4"
+# Utility for managing network connections
+brew "netcat"
+# Image manipulation
+brew "netpbm"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Audit npm packages before you install them
+brew "npq"
+# Package for scientific computing with Python
+brew "numpy"
+# Optimized BLAS library
+brew "openblas"
+# Open source suite of directory software
+brew "openldap"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Token, cost, and session dashboard for Claude Code usage
+brew "phuryn/claude-usage/claude-usage"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# CLI for Playwright: record/generate code, inspect selectors, take screenshots
+brew "playwright-cli"
+# MCP server for Playwright
+brew "playwright-mcp"
+# Kubernetes cluster resource sanitizer
+brew "popeye"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Fast Git hook manager written in Rust, drop-in alternative to pre-commit
+brew "prek"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Quickly evaluate IAM permissions in AWS
+brew "principalmapper"
+# Tool for cloud security assessments, audits, incident response, and more
+brew "prowler"
+# Parallel versions of OpenSSH and related tools
+brew "pssh"
+# Show ps output as a tree
+brew "pstree"
+# C parser in Python
+brew "pycparser"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# Ruby version manager
+brew "rbenv"
+# Rsync for cloud storage
+brew "rclone"
+# Linter and language server for Rego
+brew "regal"
+# Automated dependency updates
+brew "renovate"
+# Pack repository contents into a single AI-friendly file
+brew "repomix"
+# CLI proxy to minimize LLM token consumption
+brew "rtk"
+# Safe, concurrent, practical language
+brew "rust"
+# Scan for misconfigured S3 buckets across S3-compatible APIs
+brew "s3scanner"
+# Get any text on your screen into your clipboard
+brew "schappim/ocr/ocr"
+# Security health metrics for Open Source
+brew "scorecard"
+# Easily detect and prevent bugs and anti-patterns in your codebase
+brew "semgrep"
+# Monitors sleep, wakeup, and idleness of a Mac
+brew "sleepwatcher"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Tool Command Language
+brew "tcl-tk"
+# User interface to the TELNET protocol
+brew "telnet"
+# Improve Terraform's plan output
+brew "terraform_landscape"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# A command-line utility to print the summary of the terraform plan
+brew "thecasualcoder/stable/tf-summarize"
+# Official tldr client written in Rust (alongside tldr)
+brew "tlrc"
+# Program that allows you to count code, quickly
+brew "tokei"
+# Vulnerability scanner for container images, file systems, and Git repos
+brew "trivy"
+# Find and verify credentials
+brew "trufflehog"
+# Language for application scale JavaScript development
+brew "typescript"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Your CLI home video recorder
+brew "vhs"
+# Tool for creating isolated virtual python environments
+brew "virtualenv"
+# Linter for YAML files
+brew "yamllint"
+# JavaScript package manager
+brew "yarn"
+# Next-generation plugin manager for zsh
+brew "zplug"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+
+## additional casks from laptop Brewfile ##
+
+# Command-line interface for 1Password
+cask "1password-cli"
+# Communications service
+cask "amazon-chime"
+# Tools for building Android applications
+cask "android-studio"
+# Managed client-based VPN service to securely access AWS resources
+cask "aws-vpn-client"
+# Ghostty-based terminal with vertical tabs and notifications for AI coding agents
+cask "cmux"
+# AI code review CLI
+cask "coderabbit"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
+# Web browser
+cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
+# Graphically shows disk usage within a file system
+cask "grandperspective"
+# Keep your computer awake
+cask "jiggler"
+# Free and Open Source Video Editor
+cask "kdenlive"
+# Clipboard manager
+cask "maccy"
+# File system integration
+cask "macfuse"
+# Screenshot and screen recording tool
+cask "macshot"
+# Shows the next meeting in the menu bar
+cask "meetingbar"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# App to write, plan, collaborate, and get organised
+cask "notion"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+cask "oktadev/tap/okta"
+# Interactive whiteboard application
+cask "openboard"
+# Cross-platform video editor
+cask "openshot-video-editor"
+# System monitor for the menu bar
+cask "stats"
+# System tray app for automatic time tracking
+cask "wakatime"
+# Voice-to-text dictation with AI-powered auto-editing
+cask "wispr-flow"
+## vscode extensions ##
+
+vscode "bmewburn.vscode-intelephense-client"
+vscode "docker.docker"
+vscode "eamodio.gitlens"
+vscode "editorconfig.editorconfig"
+vscode "github.vscode-github-actions"
+vscode "golang.go"
+vscode "hashicorp.terraform"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.makefile-tools"
+vscode "oderwat.indent-rainbow"
+vscode "redhat.java"
+vscode "redhat.vscode-yaml"
+vscode "tsandall.opa"
+vscode "vmware.vscode-boot-dev-pack"
+vscode "vmware.vscode-spring-boot"
+vscode "vscjava.migrate-java-to-azure"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-java-upgrade"
+vscode "vscjava.vscode-maven"
+vscode "vscjava.vscode-spring-boot-dashboard"
+vscode "vscjava.vscode-spring-initializr"
+
+## go tools ##
+
+go "cmd/go"
+go "cmd/gofmt"
+
+## uv-managed tools ##
+
+uv "basic-memory"
+uv "claude-code-transcripts"
+uv "confluence-markdown-exporter"
+uv "laya"
+uv "mcp-atlassian"
+uv "openshell"
+uv "serena-agent"
+uv "skillspector", source: "git+https://github.com/NVIDIA/skillspector.git"
+
+## krew plugins ##
+
+krew "deprecations"
+krew "explore"
+krew "get-all"
+krew "krew"
+krew "nodepools"
+krew "status"
+krew "who-can"
+
+## npm-managed tools ##
+
+npm "corepack"
