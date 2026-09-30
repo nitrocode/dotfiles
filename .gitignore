@@ -5,3 +5,6 @@ work_aliases
 *.un~
 *~
 *.log
+__pycache__/
+*.pyc
+.pytest_cache/
