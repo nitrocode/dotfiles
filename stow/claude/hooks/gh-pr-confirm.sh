@@ -1,6 +1,9 @@
 #!/bin/bash
 # visibility: public
 # PreToolUse hook: confirm `gh pr create` via macOS modal before posting.
+# Also warns (does not block) if --title isn't Conventional Commits format,
+# mirroring the same warn-only check in git-hooks/prepare-commit-msg so PR
+# titles and commit subjects are held to the same convention.
 
 set -uo pipefail
 
@@ -14,6 +17,15 @@ TITLE=$(printf '%s' "$CMD" | grep -oE -- "--title[[:space:]]+[\"'][^\"']*[\"']" 
 
 REASON="Post PR to GitHub"
 [ -n "$TITLE" ] && REASON="${REASON} | Title: ${TITLE}"
+
+if [ -n "$TITLE" ]; then
+  CC_REGEX='^(feat|fix|chore|docs|refactor|test|perf|style|build|ci|revert)(\([^)]+\))?!?: .+'
+  if ! printf '%s' "$TITLE" | grep -qE "$CC_REGEX"; then
+    REASON="${REASON}
+WARNING: title does not match Conventional Commits (<type>(<scope>)?: <subject>)."
+  fi
+fi
+
 REASON="${REASON}
 Review title and body before posting."
 
