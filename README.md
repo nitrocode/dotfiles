@@ -38,6 +38,23 @@ Org- or machine-specific config never goes in this repo. It lives in untracked `
 - `~/.zshrc.local`, sourced at the end of `.zshrc`
 - `~/.gitconfig.local`, included at the end of `.gitconfig` (so its `includeIf` rules win)
 
+## Leak guard
+
+`~/.gitconfig` registers `~/.config/git/leak-guard.py` as a global pre-commit, commit-msg, and pre-push hook (git 2.54+ config-based hooks, so each repo's own `.git/hooks` still runs). It blocks denylisted strings in any repo whose remotes aren't all on an allowed list, decided by remote URL rather than identity or directory.
+
+The denylist is never committed. Create `~/.config/git/leak-guard.local` on each machine:
+
+```ini
+[deny]
+examplecorp
+TICKET-[0-9]+
+
+[allow-remotes]
+github\.com[:/]examplecorp/
+```
+
+With no config file it fails closed. `LEAK_GUARD_SKIP=1 git commit ...` bypasses it once.
+
 ## Adding a file
 
 ```sh

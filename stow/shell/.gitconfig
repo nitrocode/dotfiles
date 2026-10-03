@@ -63,6 +63,20 @@
 	ff = only
 	rebase = false
 
+# Leak guard (git 2.54+ config-based hooks, run alongside each repo's own
+# .git/hooks). Blocks denylisted strings unless every remote matches an
+# allowed pattern. Patterns live in the untracked ~/.config/git/leak-guard.local.
+# Git appends the usual hook args (msg file, remote name + url).
+[hook "leak-guard-commit"]
+	command = python3 ~/.config/git/leak-guard.py pre-commit
+	event = pre-commit
+[hook "leak-guard-msg"]
+	command = python3 ~/.config/git/leak-guard.py commit-msg
+	event = commit-msg
+[hook "leak-guard-push"]
+	command = python3 ~/.config/git/leak-guard.py pre-push
+	event = pre-push
+
 # private, machine/org-specific overrides (never committed). Must stay last so
 # its includeIf rules win over the broader ones above.
 [include]

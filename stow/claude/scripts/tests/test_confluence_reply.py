@@ -100,6 +100,14 @@ class TestToken(unittest.TestCase):
             self.assertEqual(cr.get_token(), "t2")
             self.assertIn(cr.DEFAULT_OP_REF, run.call_args[0][0])
 
+    def test_op_ref_env_override(self):
+        env = {k: v for k, v in cr.os.environ.items() if k != "CONFLUENCE_TOKEN"}
+        env["CONFLUENCE_OP_REF"] = "op://Vault/item/field"
+        done = mock.Mock(returncode=0, stdout="t3\n")
+        with mock.patch.dict(cr.os.environ, env, clear=True), mock.patch.object(cr.subprocess, "run", return_value=done) as run:
+            self.assertEqual(cr.get_token(), "t3")
+            self.assertIn("op://Vault/item/field", run.call_args[0][0])
+
     def test_op_cache_failure_exits(self):
         env = {k: v for k, v in cr.os.environ.items() if k != "CONFLUENCE_TOKEN"}
         done = mock.Mock(returncode=1, stdout="")

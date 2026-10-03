@@ -20,10 +20,10 @@ Usage:
     export ATLASSIAN_API_TOKEN=<token from id.atlassian.com/manage-profile/security/api-tokens>
     python3 confluence-publish-adf.py \\
         --site example.atlassian.net \\
-        --page-id 5216174223 \\
-        --adf /tmp/liftoff_v23_body.adf.json \\
-        --message "v23 (2026-05-27): meta-rubric removal + tighter TOC via marklassian /toc macro" \\
-        --title "Security Review - Liftoff SDK"
+        --page-id 123456789 \\
+        --adf /tmp/page_body.adf.json \\
+        --message "v2: tighter TOC via marklassian /toc macro" \\
+        --title "My Page"
 
 Add --notify to allow watcher notifications (default is silent / minor edit).
 

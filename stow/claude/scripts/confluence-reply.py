@@ -13,12 +13,12 @@ Usage:
   confluence-reply.py resolve COMMENT_ID [--yes]           # inline comments only
   confluence-reply.py batch FILE.json [--yes]              # [{"action": "reply"|"edit"|"resolve", "id": ..., "body": ...}]
 
-Auth (basic, email + API token): CONFLUENCE_TOKEN (else op-cache.sh DEFAULT_OP_REF),
+Auth (basic, email + API token): CONFLUENCE_TOKEN (else op-cache.sh CONFLUENCE_OP_REF),
 CONFLUENCE_USER, CONFLUENCE_SITE; --gateway for scoped tokens via api.atlassian.com.
 
 Example:
-  confluence-reply.py reply 5321752588 --body-file h1.txt          # preview
-  confluence-reply.py reply 5321752588 --body-file h1.txt --yes    # send
+  confluence-reply.py reply 123456789 --body-file h1.txt          # preview
+  confluence-reply.py reply 123456789 --body-file h1.txt --yes    # send
 """
 from __future__ import annotations
 
@@ -33,6 +33,7 @@ from pathlib import Path
 
 import requests
 
+# Org-specific values come from env (set in an untracked ~/.zshrc.local); fallbacks are placeholders.
 DEFAULT_OP_REF = "op://Private/atlassian-token/credential"
 DEFAULT_SITE = "https://example.atlassian.net"
 DEFAULT_USER = "you@example.com"
@@ -60,7 +61,7 @@ def get_token():
         return tok
     op_cache = Path(__file__).resolve().parent / "op-cache.sh"
     res = subprocess.run(
-        ["bash", str(op_cache), "get", "atlassian-token", DEFAULT_OP_REF],
+        ["bash", str(op_cache), "get", "atlassian-token", os.environ.get("CONFLUENCE_OP_REF", DEFAULT_OP_REF)],
         stdout=subprocess.PIPE,
         text=True,
     )

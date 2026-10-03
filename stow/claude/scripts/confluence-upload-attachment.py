@@ -20,9 +20,9 @@ Usage:
     export ATLASSIAN_API_TOKEN=<token from id.atlassian.com/manage-profile/security/api-tokens>
     python3 confluence-upload-attachment.py \\
         --site example.atlassian.net \\
-        --page-id 5579898921 \\
+        --page-id 123456789 \\
         --file /path/to/diagram.png \\
-        --comment "Decision 5 OG-resolution flowchart"
+        --comment "Architecture diagram"
 
 Re-running with the same filename replaces the existing attachment (the v1
 endpoint creates a new version of the same-named attachment rather than a
