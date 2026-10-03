@@ -35,7 +35,7 @@ Apply these STE rules to prose. Code, commands, identifiers, and quoted error te
 - Active voice. Use passive voice only when the actor is unknown or irrelevant.
 - Simple tenses: present, past, simple future. No "would have been", "is being". Keep present perfect only when it means "true now" ("the job has completed").
 - No semicolons. Split into separate sentences.
-- Keep modality. Do not turn "may have failed" into "failed", or invent certainty the evidence does not support. The hedging cut above removes boilerplate hedges, not real uncertainty.
+- Keep modality. Do not turn "may have failed" into "failed", or invent certainty the evidence does not support. The hedging cut above deletes boilerplate hedges, not real uncertainty.
 - Use the verb, not a noun form of it: "analyze the log", not "perform an analysis of the log".
 - One term per concept. When you name a thing, keep that name for the whole response.
 - Max 3 nouns in a cluster. Break longer ones with a preposition ("timeout for the token refresh job").
