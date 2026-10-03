@@ -6,7 +6,7 @@
 set -uo pipefail
 
 SCRIPT="$CLAUDE_CONFIG_DIR/scripts/laptop-migration-pack.sh"
-REAL_MACOS_EXPORT_SCRIPT=$CLAUDE_CONFIG_DIR/scripts/macos-defaults-export.sh"
+REAL_MACOS_EXPORT_SCRIPT="$CLAUDE_CONFIG_DIR/scripts/macos-defaults-export.sh"
 SANDBOX="$(mktemp -d)"
 trap 'rm -rf "$SANDBOX"' EXIT
 
@@ -30,7 +30,7 @@ assert_contains() {
 }
 
 setup_fixture() {
-  rm -rf "$SANDBOX/home" "$SANDBOX/bin" "$SANDBOX/list.txt" "$SANDBOX/exclude.txt"
+  rm -rf "$SANDBOX/home" "$SANDBOX/bin" "$SANDBOX/dest" "$SANDBOX/list.txt" "$SANDBOX/list.local" "$SANDBOX/exclude.txt"
   mkdir -p "$SANDBOX/home" "$SANDBOX/bin" "$SANDBOX/home/.claude/scripts"
   echo "some dotfile content" > "$SANDBOX/home/.zshrc"
   mkdir -p "$SANDBOX/home/present_dir"
@@ -171,6 +171,20 @@ test_missing_list_file_errors_nonzero() {
 }
 
 echo "Running laptop-migration-pack.sh tests..."
+test_local_list_is_appended() {
+  # <list>.local holds machine/org-specific paths kept out of the public list
+  setup_fixture
+  mkdir -p "$SANDBOX/home/.private_tool"
+  echo "secret-ish" > "$SANDBOX/home/.private_tool/conf"
+  echo "~/.private_tool" > "$SANDBOX/list.local"
+  run_pack >/dev/null
+  local archive listing
+  archive="$(find "$SANDBOX/dest" -name 'laptop-migration-*.tar.gz' | head -1)"
+  listing="$(tar -tzf "$archive")"
+  assert_contains "$listing" ".private_tool/conf" && \
+  assert_contains "$listing" "present_dir/file.txt"
+}
+
 run_test "creates archive and checksum file"          test_creates_archive_and_checksum
 run_test "archive has present paths, skips missing"   test_archive_contains_expected_files_not_missing_one
 run_test "archive excludes listed subpath"            test_archive_excludes_listed_subpath
@@ -179,6 +193,7 @@ run_test "missing exclude file is non-fatal"          test_missing_exclude_file_
 run_test "reports missing-path count"                 test_reports_missing_count
 run_test "checksum matches archive contents"           test_checksum_matches_archive
 run_test "missing include list errors non-zero"        test_missing_list_file_errors_nonzero
+run_test "local include list is appended"         test_local_list_is_appended
 
 printf '\n%d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ]

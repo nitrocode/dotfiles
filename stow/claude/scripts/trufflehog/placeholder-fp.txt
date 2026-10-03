@@ -1,0 +1,31 @@
+# False-positive filter for unverified findings.
+# Each non-comment line is a Python regex matched (re.search) against the Raw value.
+# If ANY pattern matches an unverified finding, it's dropped from the triage CSV.
+# Verified findings are NEVER filtered (trufflehog already confirmed them).
+#
+# Add a pattern only when it's clearly a placeholder / template / fixture,
+# not a real credential. Surface a real concern as a finding before silencing it.
+
+# --- Placeholder credentials in URIs (literal "user", "username", etc.) ---
+[:/]username:password[@/]
+[:/]user:pass(?:word)?[@/]
+[:/]admin:admin[@/]
+[:/]anonymous:[^@]{1,16}@
+[:/]someuser:somepass[^@]*@
+[:/]your[-_]?(?:user|name|token|key)[:/@]
+
+# --- Example / loopback hosts ---
+@example\.(?:com|org|net)
+@localhost(?::[0-9]+)?[/?]?
+@127\.0\.0\.1
+://example\.(?:com|org|net)
+://localhost(?::[0-9]+)?[/?]?
+
+# --- Vagrant / Docker box hostnames misdetected as DatadogToken ---
+# These look like "-php-ubuntu-1404-31d60a99-2e0a" — distro names embedded.
+^-[a-z0-9]+-(?:ubuntu|centos|debian|alpine|fedora)-[0-9]+-[a-f0-9]+
+
+# --- Obvious dummy / template values ---
+^X{8,}$
+^0{12,}$
+^(?:fake|dummy|placeholder|changeme|secret|test)[-_]?(?:key|token|secret|password)?$

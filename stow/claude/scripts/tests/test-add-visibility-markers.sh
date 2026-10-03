@@ -7,6 +7,7 @@ set -u
 . "$CLAUDE_CONFIG_DIR/hooks/tests/_lib.sh"
 
 REAL_HOME="$HOME"
+REAL_CLAUDE_CONFIG_DIR="$CLAUDE_CONFIG_DIR"
 SCRIPT="$CLAUDE_CONFIG_DIR/scripts/add-visibility-markers.sh"
 echo "test-add-visibility-markers.sh:"
 
@@ -62,10 +63,14 @@ EOF
   echo "# CLAUDE" >"$SANDBOX/.claude/CLAUDE.md"
 
   export HOME="$SANDBOX"
+  # The script resolves its root from CLAUDE_CONFIG_DIR, so sandbox that too
+  # or apply-mode tests rewrite the real config dir.
+  export CLAUDE_CONFIG_DIR="$SANDBOX/.claude"
 }
 
 teardown_sandbox() {
   export HOME="$REAL_HOME"
+  export CLAUDE_CONFIG_DIR="$REAL_CLAUDE_CONFIG_DIR"
   export PATH="$ORIG_PATH"
   rm -rf "$SANDBOX"
 }
@@ -109,8 +114,9 @@ test_md_without_frontmatter_gets_html_comment() {
   run_script >/dev/null
   local content; content=$(cat "$SANDBOX/.claude/RTK.md")
   teardown_sandbox
+  # Line 1 is a heading, so the script keeps it first and puts the marker on line 3.
   case "$content" in
-    "<!-- visibility: public -->"*) return 0;;
+    "# RTK"$'\n\n'"<!-- visibility: public -->"*) return 0;;
     *) printf '    got: %s\n' "$content" >&2; return 1;;
   esac
 }
@@ -126,7 +132,7 @@ test_json_gets_visibility_key() {
 test_json_preserves_existing_keys() {
   setup_sandbox
   run_script >/dev/null
-  local bar; foo=$(jq -r '.foo' "$SANDBOX/.claude/prompts/templates/extraction-skill-v1.0.0.meta.json")
+  local bar; bar=$(jq -r '.bar' "$SANDBOX/.claude/prompts/templates/extraction-skill-v1.0.0.meta.json")
   teardown_sandbox
   [ "$bar" = "bar" ]
 }
@@ -145,7 +151,7 @@ test_internal_files_get_internal_marker() {
   local content; content=$(cat "$SANDBOX/.claude/CLAUDE.md")
   teardown_sandbox
   case "$content" in
-    "<!-- visibility: internal -->"*) return 0;;
+    "# CLAUDE"$'\n\n'"<!-- visibility: internal -->"*) return 0;;
     *) return 1;;
   esac
 }

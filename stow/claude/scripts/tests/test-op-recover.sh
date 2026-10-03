@@ -10,7 +10,20 @@ set -u
 SCRIPT="$CLAUDE_CONFIG_DIR/scripts/op-recover.sh"
 echo "test-op-recover.sh:"
 
+# run_test only sees a test's last command (teardown), so assertions record
+# failures here and teardown_sandbox returns them.
+check() { "$@" || T_FAIL=1; }
+
+# _lib.sh has no assert_eq; return-code style to fit run_test.
+assert_eq() {
+  local expected="$1" actual="$2" desc="$3"
+  [ "$expected" = "$actual" ] && return 0
+  printf '    %s: expected %s, got %s\n' "$desc" "$expected" "$actual" >&2
+  return 1
+}
+
 setup_sandbox() {
+  T_FAIL=0
   SANDBOX=$(mktemp -d)
   STATE="$SANDBOX/state"
   mkdir -p "$SANDBOX/bin" "$STATE"
@@ -28,6 +41,7 @@ set -u
 STATE="${OP_MOCK_STATE:?need OP_MOCK_STATE}"
 SUCCESS_AT="${OP_MOCK_WHOAMI_SUCCESS_AT:-1}"
 SIGNIN_OUT="${OP_MOCK_SIGNIN_OUTPUT:-}"
+echo "$*" >>"$STATE/op-calls.txt"
 sub="$1"; shift || true
 case "$sub" in
   whoami)
@@ -99,17 +113,18 @@ PG
 teardown_sandbox() {
   rm -rf "$SANDBOX"
   unset OP_MOCK_STATE PGREP_MOCK_RUNNING OP_MOCK_WHOAMI_SUCCESS_AT OP_MOCK_SIGNIN_OUTPUT
+  return "$T_FAIL"
 }
 
 test_help_exits_zero() {
   setup_sandbox
   out=$(bash "$SCRIPT" --help 2>&1)
   rc=$?
-  assert_eq 0 "$rc" "--help exit code"
-  assert_contains "$out" "Recover 1Password CLI" "--help output"
+  check assert_eq 0 "$rc" "--help exit code"
+  check assert_contains "$out" "Recover 1Password CLI" "--help output"
   teardown_sandbox
 }
-run_test test_help_exits_zero
+run_test test_help_exits_zero test_help_exits_zero
 
 test_already_signed_in_skips_spawn() {
   setup_sandbox
@@ -117,13 +132,43 @@ test_already_signed_in_skips_spawn() {
   export PGREP_MOCK_RUNNING=1
   out=$(bash "$SCRIPT" 2>&1)
   rc=$?
-  assert_eq 0 "$rc" "already-signed-in exit code"
-  assert_contains "$out" "already signed in" "already-signed-in message"
+  check assert_eq 0 "$rc" "already-signed-in exit code"
+  check assert_contains "$out" "already signed in" "already-signed-in message"
   open_count=$(wc -l <"$OPEN_CALLS" | tr -d ' ')
-  assert_eq 0 "$open_count" "open should NOT be called when already signed in"
+  check assert_eq 0 "$open_count" "open should NOT be called when already signed in"
   teardown_sandbox
 }
-run_test test_already_signed_in_skips_spawn
+run_test test_already_signed_in_skips_spawn test_already_signed_in_skips_spawn
+
+test_account_from_env() {
+  setup_sandbox
+  export OP_MOCK_WHOAMI_SUCCESS_AT=1 PGREP_MOCK_RUNNING=1
+  OP_ACCOUNT=myacct bash "$SCRIPT" >/dev/null 2>&1
+  check assert_contains "$(cat "$OP_CALLS")" "whoami --account myacct" "OP_ACCOUNT passed to op"
+  teardown_sandbox
+}
+run_test test_account_from_env test_account_from_env
+
+test_flag_overrides_env() {
+  setup_sandbox
+  export OP_MOCK_WHOAMI_SUCCESS_AT=1 PGREP_MOCK_RUNNING=1
+  OP_ACCOUNT=myacct bash "$SCRIPT" --account other >/dev/null 2>&1
+  check assert_contains "$(cat "$OP_CALLS")" "whoami --account other" "--account wins over OP_ACCOUNT"
+  teardown_sandbox
+}
+run_test test_flag_overrides_env test_flag_overrides_env
+
+test_no_account_omits_flag() {
+  setup_sandbox
+  export OP_MOCK_WHOAMI_SUCCESS_AT=1 PGREP_MOCK_RUNNING=1
+  out=$(env -u OP_ACCOUNT bash "$SCRIPT" 2>&1); rc=$?
+  check assert_eq 0 "$rc" "no-account exit code"
+  if grep -q -- "--account" "$OP_CALLS"; then
+    echo "    op called with --account despite no account configured" >&2; T_FAIL=1
+  fi
+  teardown_sandbox
+}
+run_test test_no_account_omits_flag test_no_account_omits_flag
 
 test_app_not_running_spawns_then_succeeds() {
   setup_sandbox
@@ -132,15 +177,15 @@ test_app_not_running_spawns_then_succeeds() {
   export PGREP_MOCK_RUNNING=0
   out=$(bash "$SCRIPT" 2>&1)
   rc=$?
-  assert_eq 0 "$rc" "spawn-then-succeed exit code"
-  assert_contains "$out" "not running" "detects app not running"
-  assert_contains "$out" "signed in after launching app" "post-spawn success message"
+  check assert_eq 0 "$rc" "spawn-then-succeed exit code"
+  check assert_contains "$out" "not running" "detects app not running"
+  check assert_contains "$out" "signed in after launching app" "post-spawn success message"
   open_count=$(wc -l <"$OPEN_CALLS" | tr -d ' ')
-  assert_eq 1 "$open_count" "open should be called exactly once"
-  assert_contains "$(cat "$OPEN_CALLS")" "-ga 1Password" "open should be called with -ga 1Password"
+  check assert_eq 1 "$open_count" "open should be called exactly once"
+  check assert_contains "$(cat "$OPEN_CALLS")" "-ga 1Password" "open should be called with -ga 1Password"
   teardown_sandbox
 }
-run_test test_app_not_running_spawns_then_succeeds
+run_test test_app_not_running_spawns_then_succeeds test_app_not_running_spawns_then_succeeds
 
 test_app_running_skips_spawn() {
   setup_sandbox
@@ -152,9 +197,9 @@ test_app_running_skips_spawn() {
   export PGREP_MOCK_RUNNING=1
   out=$(bash "$SCRIPT" 2>&1 || true)
   open_count=$(wc -l <"$OPEN_CALLS" | tr -d ' ')
-  assert_eq 0 "$open_count" "open should NOT be called when app already running"
+  check assert_eq 0 "$open_count" "open should NOT be called when app already running"
   teardown_sandbox
 }
-run_test test_app_running_skips_spawn
+run_test test_app_running_skips_spawn test_app_running_skips_spawn
 
 print_summary

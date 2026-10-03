@@ -1,0 +1,71 @@
+# Trufflehog --exclude-paths: regex (RE2), one per line.
+# Goal: remove derived/duplicate matches that don't reflect source-of-truth secrets.
+# Each pattern matches against the full file path. Add a comment noting WHY.
+
+# --- Build outputs (compiled artifacts, derived from source) ---
+(^|/)build/                               # gradle/maven build dirs
+\.apk$                                    # Android packages
+\.aab$                                    # Android app bundles
+\.dex$                                    # Dalvik bytecode
+\.aar$                                    # Android archive
+\.jar$                                    # Java archive
+\.war$                                    # Java web archive
+\.class$                                  # JVM class files
+\.so$                                     # shared objects
+\.dylib$                                  # macOS dylibs
+\.o$                                      # object files
+\.exe$                                    # Windows executables
+\.dll$                                    # Windows DLLs
+
+# --- Compressed compiled binaries (release artifacts checked into repos) ---
+# Go-style release naming: <tool>-<version>-<os>-<arch>.<compression>
+-(linux|darwin|windows|freebsd|netbsd|openbsd)-(amd64|arm64|386|arm|armv[567]|mips64|s390x|ppc64le)\.(gz|xz|bz2|zst|br)$
+# Compressed Windows binaries
+\.(exe|dll)\.(gz|xz|bz2|zst|br)$
+# Anything compressed living inside a bin/ dir is almost always a binary
+(^|/)bin/.*\.(gz|xz|bz2|zst|br)$
+
+# --- Caches / VM / language toolchains ---
+(^|/)\.gradle/                            # gradle cache
+(^|/)\.idea/                              # JetBrains
+(^|/)\.vscode/                            # VS Code
+(^|/)node_modules/                        # JS deps
+(^|/)__pycache__/                         # Python bytecode cache
+(^|/)\.tox/                               # Python tox envs
+(^|/)\.venv[^/]*/                         # Python venv (.venv, .venv-new, .venv312, etc.)
+(^|/)venv[^/]*/                           # Python venv (venv, venv-dev, etc.)
+(^|/)env/                                 # Python venv (legacy `python -m venv env`)
+(^|/)\.eggs/                              # Python egg cache
+(^|/)\.cache/                             # generic tool caches
+(^|/)\.mypy_cache/                        # mypy
+(^|/)\.pytest_cache/                      # pytest
+(^|/)vendor/                              # Go/PHP vendored deps
+(^|/)target/                              # Rust/Java build
+(^|/)dist/                                # generic dist output
+\.pyc$                                    # Python bytecode
+
+# --- Git internals (duplicates of source content via packfiles) ---
+# NOTE: removing this exclusion will pull in historical/branch secrets too.
+# Use --no-exclude-paths flag (or a separate config) for full-history audits.
+(^|/)\.git/
+
+# --- Terraform local cache (provider binaries, vendored modules) ---
+(^|/)\.terraform/
+
+# --- Generated terraform plan/state JSON noise ---
+# Do NOT exclude .tfstate / .tfstate.backup — those are a known place real
+# secrets leak (backend writes provider responses). Keep them in scope.
+\.tfplan$
+
+# --- Common binary file types unlikely to host source secrets ---
+\.png$
+\.jpg$
+\.jpeg$
+\.gif$
+\.ico$
+\.pdf$
+\.zip$
+\.tar$
+\.tar\.gz$
+\.tgz$
+\.7z$

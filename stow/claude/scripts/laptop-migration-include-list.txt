@@ -1,0 +1,95 @@
+# Laptop migration include list
+# One path per line, ~ expands to $HOME. Blank lines and #-comments ignored.
+# Consumed by laptop-migration-dry-run.sh
+# Reviewed 2026-08-12: excludes credential-bearing dirs (re-auth fresh instead)
+# and excludes loose security-assessment artifacts found in $HOME root.
+
+# Homebrew
+~/Brewfile
+
+# Dotfiles
+~/.zshrc
+~/.zshenv
+~/.zprofile
+~/.gitconfig
+~/.gitconfig-360rb
+~/.gitconfig-work
+~/.gitconfig-personal-github
+~/.gitconfig-personal-gitlab
+~/.gitignore_global
+~/.vimrc
+~/.tool-versions
+~/.curlrc
+~/.nanorc
+~/.tflint.hcl
+~/.terraformrc
+~/.p10k.zsh
+
+# SSH (see WARNING in session notes: consider rotating instead of copying)
+~/.ssh
+
+# Crontab (crontab -l doesn't move with dotfiles; restore via `crontab crontab.backup.txt`)
+~/crontab.backup.txt
+
+# Custom LaunchAgent (redact-session-tokens.py itself is under ~/.claude, already included below)
+~/Library/LaunchAgents/com.user.claude-mcp-redact.plist
+
+# App preferences worth carrying over (settings only, not licensing/telemetry cruft)
+~/Library/Preferences/com.knollsoft.Rectangle.plist
+~/Library/Preferences/com.googlecode.iterm2.plist
+~/Library/Preferences/com.googlecode.iterm2.private.plist
+~/Library/Preferences/eu.exelban.Stats.plist
+~/Library/Preferences/com.raycast.macos.plist
+~/Library/Preferences/org.herf.Flux.plist
+~/Library/Preferences/macos-wakatime.WakaTime.plist
+~/Library/Preferences/org.gpgtools.common.plist
+~/Library/Preferences/com.xk72.Charles.plist
+~/Library/Preferences/org.flameshot.plist
+~/Library/Preferences/org.flameshot.Flameshot.plist
+
+# Editor settings (real config, not the mostly-irrelevant window-state plist)
+~/Library/Application Support/Code/User/settings.json
+~/Library/Application Support/Code/User/keybindings.json
+~/Library/Application Support/Code/User/snippets
+~/vscode-extensions.txt
+~/Library/Application Support/Cursor/User/settings.json
+~/Library/Application Support/Cursor/User/keybindings.json
+~/cursor-extensions.txt
+
+# macOS system settings, exported via macos-defaults-export.sh (Dock, Finder,
+# keyboard shortcuts, trackpad, screenshots, spaces, input sources)
+~/macos-defaults-backup
+
+# Documents / Downloads
+~/Documents
+~/Downloads
+
+# Claude Code / Claude Desktop config + session history
+~/.claude
+~/.claude.json
+~/.claude.md
+~/CLAUDE.md
+~/.claude-mem
+~/.cc-safety-net
+~/.claudit
+
+# Misc small config dirs
+~/.gemini
+~/.config/gh-dash
+~/.config/gh-jiobit
+~/.config/gh-personal
+~/.config/gh-tilecorporation
+~/.config/iterm2
+~/.config/argocd
+# ~/.config/gcloud intentionally excluded: contains credentials.db /
+# legacy_credentials OAuth tokens. Re-run `gcloud auth login` / `gcloud init`
+# fresh on the new laptop instead.
+
+# AWS credentials/config included per explicit user request 2026-08-13,
+# overriding the prior default of re-authing fresh via Identity Center/SSO.
+# ~/.aws/credentials contains plaintext long-lived keys if any are configured.
+~/.aws/config
+~/.aws/credentials
+~/.granted
+~/Postman
+~/scripts

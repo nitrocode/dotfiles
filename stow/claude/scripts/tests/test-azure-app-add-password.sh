@@ -9,7 +9,7 @@ set -u
 SCRIPT="$CLAUDE_CONFIG_DIR/scripts/azure-app-add-password.sh"
 echo "test-azure-app-add-password.sh:"
 
-FIXTURES_DIR=$CLAUDE_CONFIG_DIR/scripts/tests/fixtures/mockbin"
+FIXTURES_DIR="$CLAUDE_CONFIG_DIR/scripts/tests/fixtures/mockbin"
 
 setup_sandbox() {
   # State dir only (no bin dir here: the mock `curl` fixture is a
@@ -102,7 +102,7 @@ test_token_failure_aborts_before_addpassword_call() {
   # Script must fail, and must never have reached the addPassword endpoint.
   [ "$rc" -ne 0 ] \
     && assert_contains "$out" "token request failed" \
-    && ! (printf '%s' "$calls" | grep -q "graph.microsoft.com")
+    && ! (printf '%s' "$calls" | grep -q "graph.microsoft.com/v1.0/applications/.*/addPassword")
 }
 
 run_test "happy path prints the new secret" test_happy_path_prints_secret

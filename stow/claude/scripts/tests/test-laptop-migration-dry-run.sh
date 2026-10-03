@@ -31,7 +31,7 @@ assert_contains() {
 
 setup_fixture() {
   # rebuild a clean fixture tree + include list for each test
-  rm -rf "$SANDBOX/home" "$SANDBOX/list.txt" "$SANDBOX/exclude.txt"
+  rm -rf "$SANDBOX/home" "$SANDBOX/list.txt" "$SANDBOX/list.local" "$SANDBOX/exclude.txt"
   mkdir -p "$SANDBOX/home/present_dir"
   echo "hello" > "$SANDBOX/home/present_dir/file.txt"
   echo "world" > "$SANDBOX/home/present_file.txt"
@@ -131,6 +131,17 @@ test_missing_exclude_file_does_not_error() {
 }
 
 echo "Running laptop-migration-dry-run.sh tests..."
+test_local_list_is_counted() {
+  setup_fixture
+  mkdir -p "$SANDBOX/home/private_dir"
+  echo "x" > "$SANDBOX/home/private_dir/f"
+  echo "~/private_dir" > "$SANDBOX/list.local"
+  local out
+  out="$(HOME="$SANDBOX/home" bash "$SCRIPT" "$SANDBOX/list.txt")"
+  assert_contains "$out" "Included paths: 3" && \
+  assert_contains "$out" "private_dir"
+}
+
 run_test "reports found/missing counts"        test_reports_found_and_missing_counts
 run_test "skips comments and blank lines"       test_skips_comments_and_blank_lines
 run_test "missing list file errors non-zero"    test_missing_list_file_errors_nonzero
@@ -139,6 +150,7 @@ run_test "dry-run has no side effects"          test_no_side_effects_no_archive_
 run_test "excluded subpath reported + netted"   test_excluded_subpath_reported_and_netted_from_total
 run_test "excluded subpath reduces parent size" test_excluded_subpath_reduces_parent_size
 run_test "missing exclude file is non-fatal"    test_missing_exclude_file_does_not_error
+run_test "local include list is counted" test_local_list_is_counted
 
 printf '\n%d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ]

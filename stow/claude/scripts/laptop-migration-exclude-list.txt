@@ -1,0 +1,23 @@
+# Laptop migration exclude list
+# Subpaths of an include-list entry to skip when packing/estimating.
+# One path per line, ~ expands to $HOME. Blank lines and #-comments ignored.
+# Consumed by laptop-migration-pack.sh and laptop-migration-dry-run.sh.
+#
+# These are reproducible cache/build output living inside otherwise-included
+# directories (e.g. ~/.claude), not source worth shipping through Drive.
+# Reviewed 2026-08-13.
+
+# npm deps for the gstack skill, reinstall via `npm install` in this dir
+~/.claude/skills/gstack/node_modules
+
+# cached agent-dashboard session transcripts, regenerates as you use it
+~/.claude/agent-dashboard/transcripts
+
+# cloned plugin marketplace repos, re-fetched automatically on next /plugin use
+~/.claude/plugins/marketplaces
+
+# installed plugin cache, rebuilt automatically on next plugin load
+~/.claude/plugins/cache
+
+# Python venv for the security agent-sdk, rebuild via pip install -r requirements.txt
+~/.claude/security/agent-sdk-venv
