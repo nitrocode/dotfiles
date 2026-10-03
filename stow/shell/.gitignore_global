@@ -1,1 +1,12 @@
 .envrc
+*.bak
+.DS_Store
+venv/
+.venv/
+env/
+*.log
+*.tmp
+*.dmp
+*.out
+*.swp
+*.swo
