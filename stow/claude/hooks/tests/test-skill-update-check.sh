@@ -22,7 +22,7 @@ run_with() {
   local skill="$1"
   local input
   input=$(jq -nc --arg skill "$skill" '{tool_input:{skill:$skill}}')
-  printf '%s' "$input" | HOME="$SANDBOX" bash "$HOOK"
+  printf '%s' "$input" | HOME="$SANDBOX" CLAUDE_CONFIG_DIR="$SANDBOX/.claude" bash "$HOOK"
 }
 
 setup_sandbox
@@ -72,7 +72,7 @@ test_unknown_bare_skill_not_flagged() {
 
 test_missing_skill_input_does_not_crash() {
   local out
-  out=$(printf '%s' '{"tool_input":{}}' | HOME="$SANDBOX" bash "$HOOK")
+  out=$(printf '%s' '{"tool_input":{}}' | HOME="$SANDBOX" CLAUDE_CONFIG_DIR="$SANDBOX/.claude" bash "$HOOK")
   [ "$out" = "{}" ]
 }
 

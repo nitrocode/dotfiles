@@ -29,9 +29,14 @@ import sys
 
 FILE_PATH_TOOLS = {"Edit", "Write", "MultiEdit"}
 
-EXEMPT_PATH_PREFIXES = (
-    os.path.expanduser("$CLAUDE_CONFIG_DIR/plans/"),
-)
+def _plans_prefixes():
+    """Plans dir under the config dir, as given and resolved (it may be a symlink)."""
+    base = os.environ.get("CLAUDE_CONFIG_DIR") or os.path.expanduser("~/.claude")
+    dirs = {base.rstrip("/"), os.path.realpath(base)}
+    return tuple(d + "/plans/" for d in sorted(dirs))
+
+
+EXEMPT_PATH_PREFIXES = _plans_prefixes()
 EXEMPT_PATH_SUBSTRINGS = (
     "/scratchpad/",
 )

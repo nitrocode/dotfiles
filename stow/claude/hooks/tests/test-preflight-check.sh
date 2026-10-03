@@ -20,7 +20,7 @@ run_with_fake_login_script() {
 $body
 EOF
   chmod +x "$sandbox/.claude/scripts/ensure-saas-login.sh"
-  HOME="$sandbox" bash "$HOOK"
+  HOME="$sandbox" CLAUDE_CONFIG_DIR="$sandbox/.claude" bash "$HOOK"
   local rc=$?
   rm -rf "$sandbox"
   return $rc
@@ -49,7 +49,7 @@ echo "  - Cycode"
 exit 1
 EOF
   chmod +x "$sandbox/.claude/scripts/ensure-saas-login.sh"
-  HOME="$sandbox" bash "$HOOK" >/dev/null 2>&1
+  HOME="$sandbox" CLAUDE_CONFIG_DIR="$sandbox/.claude" bash "$HOOK" >/dev/null 2>&1
   local rc=$?
   rm -rf "$sandbox"
   [ "$rc" -eq 0 ]
@@ -61,7 +61,7 @@ test_missing_login_script_warns_but_does_not_fail() {
   mkdir -p "$sandbox/.claude/scripts"
   # deliberately do not create ensure-saas-login.sh
   local out
-  out=$(HOME="$sandbox" bash "$HOOK" 2>&1)
+  out=$(HOME="$sandbox" CLAUDE_CONFIG_DIR="$sandbox/.claude" bash "$HOOK" 2>&1)
   local rc=$?
   rm -rf "$sandbox"
   assert_contains "$out" "not found" && [ "$rc" -eq 0 ]

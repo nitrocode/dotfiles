@@ -7,9 +7,11 @@ echo "test-slack-rate-limit.sh:"
 
 HOOK="$CLAUDE_CONFIG_DIR/hooks/slack-rate-limit.sh"
 
-# Sandbox HOME so the real $CLAUDE_CONFIG_DIR/state/slack-call-log.json is never touched.
+# Sandbox HOME and CLAUDE_CONFIG_DIR (the hook resolves state from the latter)
+# so the real shared throttle log, slack-call-log.json, is never touched.
 SANDBOX=$(mktemp -d)
 export HOME="$SANDBOX"
+export CLAUDE_CONFIG_DIR="$SANDBOX/.claude"
 mkdir -p "$CLAUDE_CONFIG_DIR/state"
 
 # Fast thresholds for the test run.
@@ -65,20 +67,25 @@ test_first_slackcli_call_no_delay_writes_state() {
 
 test_second_call_within_min_interval_sleeps() {
   reset_state
+  # 2s, not 1s: the hook uses whole-second timestamps, so with a 1s interval
+  # two calls straddling a second boundary look 1s apart and never wait.
+  export SLACK_RATE_MIN_INTERVAL_S=2
   run_bash "slackcli read" >/dev/null 2>&1
   local ms
   ms=$(elapsed_ms run_bash "agent-slack read foo")
-  # Expect a sleep close to SLACK_RATE_MIN_INTERVAL_S (1s = 1000ms).
-  (( ms >= 700 && ms <= 3000 ))
+  export SLACK_RATE_MIN_INTERVAL_S=1
+  # A sub-second gap computes as 0 or 1s elapsed, so the wait is 1-2s.
+  (( ms >= 700 && ms <= 3500 ))
 }
 
 test_call_at_cap_sleeps_until_slot_frees() {
   reset_state
   export SLACK_RATE_MIN_INTERVAL_S=0
-  # Fill to cap (3 calls), spaced enough to avoid min-interval waits.
+  # Fill to cap (3 calls) quickly; min interval is 0 here so no spacing is
+  # needed, and long spacing risks the oldest call aging out before call 4.
   for _ in 1 2 3; do
     run_bash "slackcli read" >/dev/null 2>&1
-    sleep 1.2
+    sleep 0.2
   done
   local ms
   ms=$(elapsed_ms run_bash "slackcli read")

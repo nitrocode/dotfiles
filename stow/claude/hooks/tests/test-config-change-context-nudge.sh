@@ -32,7 +32,7 @@ setup_sandbox_home() {
 
 run_in_sandbox() {
   local sandbox="$1"
-  HOME="$sandbox" bash "$HOOK"
+  HOME="$sandbox" CLAUDE_CONFIG_DIR="$sandbox/.claude" bash "$HOOK"
 }
 
 test_no_prior_hash_nudges_and_writes() {

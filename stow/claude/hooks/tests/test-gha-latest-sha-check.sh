@@ -11,9 +11,14 @@ PASS=0
 FAIL=0
 FAILED=()
 
+# Hooks resolve paths from CLAUDE_CONFIG_DIR, so sandbox it with HOME or the
+# tests write fake SHAs into the real version cache.
+REAL_HOME="$HOME"; REAL_CLAUDE_CONFIG_DIR="$CLAUDE_CONFIG_DIR"; REAL_PATH="$PATH"
+
 setup_sandbox() {
   SANDBOX=$(mktemp -d)
   export HOME="$SANDBOX"
+  export CLAUDE_CONFIG_DIR="$SANDBOX/.claude"
   mkdir -p "$SANDBOX/.claude/hooks/cache"
   mkdir -p "$SANDBOX/bin"
   export PATH="$SANDBOX/bin:$PATH"
@@ -21,6 +26,7 @@ setup_sandbox() {
 
 teardown_sandbox() {
   rm -rf "$SANDBOX"
+  export HOME="$REAL_HOME" CLAUDE_CONFIG_DIR="$REAL_CLAUDE_CONFIG_DIR" PATH="$REAL_PATH"
 }
 
 # Stub gh: handles `gh api repos/<repo>/releases/latest` and `gh api repos/<repo>/commits/<tag>`.

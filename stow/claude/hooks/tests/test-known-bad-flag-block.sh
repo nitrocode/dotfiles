@@ -48,7 +48,7 @@ test_missing_rules_file_fails_open() {
   sandbox=$(mktemp -d)
   local input
   input=$(jq -nc --arg c 'coderabbit review --plain' '{tool_name:"Bash",tool_input:{command:$c}}')
-  out=$(printf '%s' "$input" | HOME="$sandbox" bash "$HOOK")
+  out=$(printf '%s' "$input" | HOME="$sandbox" CLAUDE_CONFIG_DIR="$sandbox/.claude" bash "$HOOK")
   rm -rf "$sandbox"
   assert_empty "$out"
 }
@@ -62,7 +62,7 @@ test_custom_rule_denies() {
   printf 'foo[[:space:]]+bar\t--baz([[:space:]]|$)\tfoo bar has no --baz flag.\n' > "$sandbox/.claude/hooks/bad-flag-rules.tsv"
   local input
   input=$(jq -nc --arg c 'foo bar --baz' '{tool_name:"Bash",tool_input:{command:$c}}')
-  out=$(printf '%s' "$input" | HOME="$sandbox" bash "$HOOK")
+  out=$(printf '%s' "$input" | HOME="$sandbox" CLAUDE_CONFIG_DIR="$sandbox/.claude" bash "$HOOK")
   rm -rf "$sandbox"
   assert_decision "$out" "deny"
 }
