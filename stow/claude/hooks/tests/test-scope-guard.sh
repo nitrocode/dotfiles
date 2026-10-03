@@ -38,7 +38,7 @@ test_above_threshold_warns_once() {
   run_with "s3" "/b.txt" > /dev/null
   run_with "s3" "/c.txt" > /dev/null
   out1=$(run_with "s3" "/d.txt")
-  assert_contains "$out1" "plan-mode.md"
+  assert_contains "$out1" "plan-mode.md" || return 1
   # Fifth distinct file: already warned, must stay silent.
   out2=$(run_with "s3" "/e.txt")
   assert_empty "$(printf '%s' "$out2" | jq -r '.hookSpecificOutput.additionalContext // empty')"
