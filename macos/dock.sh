@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 apps=( "Authy Desktop.app" "Firefox.app" "GIMP.app" "Google Chrome.app" "Microsoft Outlook.app" "MySQLWorkbench.app" "SQLWorkbenchJ.app" "Slack.app" "SourceTree.app" "iTerm.app" )
 
 for i in "${apps[@]}"
