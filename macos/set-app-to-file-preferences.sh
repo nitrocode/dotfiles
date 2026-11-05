@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Started with: https://www.darraghoriordan.com/2021/09/15/vscode-default-text-files-mac/
 
