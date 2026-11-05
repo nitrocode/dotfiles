@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # default shell
 echo $(which zsh) | sudo tee -a /etc/shells
 chsh -s $(which zsh)
