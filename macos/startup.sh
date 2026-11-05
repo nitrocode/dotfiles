@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 apps=( "KeepingYouAwake.app" "Flux.app" "Google Chrome.app" "Spectacle.app" "Übersicht.app" "Itsycal.app" "Slack.app" )
 
 for i in "${apps[@]}"
