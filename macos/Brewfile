@@ -18,13 +18,13 @@ cask "xquartz"
 # This is closer to the top so the laptop will be uninterrupted while this runs
 cask "keepingyouawake"
 # authenticator
-cask "authy"
+# cask "authy"
 # password managers
 cask "1password"
 cask "bitwarden"
-cask "keepassxc"
+# cask "keepassxc"
 # chat
-cask "keybase"
+# cask "keybase"
 cask "slack"
 cask "zoom"
 cask "signal"
@@ -35,44 +35,26 @@ cask "whatsapp"
 # cask "google-chrome"
 cask "brave-browser"
 cask "firefox"
-# fb messenger
-#cask "goofy"
 # terminal
 cask "iterm2"
 # editors
-#cask "atom"
-#cask "intellij-idea-ce"
-cask "pycharm-ce"
 cask "visual-studio-code"
-# source control gui
-cask "sourcetree"
-# database
-# cask "sqlworkbenchj"
-# cask "mysqlworkbench"
-# data visualization
-#cask "tableau-reader"
 # vms
 cask "virtualbox"
 cask "virtualbox-extension-pack"
-# vm manager
-cask "vagrant"
-#cask "vagrant-manager"
 # containers
 cask "docker"
-# aws creds manager
-#cask "aws-vault" # commented out because we want the --no-daemonize option which hasnt been merged yet
 # aws ssm
 cask "session-manager-plugin"
 # cloud drives
 #cask "google-drive-file-stream"
-#cask "onedrive"
 cask "dropbox"
 # install java dependency
 cask "java"
 # force paste password as an apple script
 cask "force-paste"
 # firewall similar to little snitch
-cask "lulu"
+# cask "lulu"
 # window manager
 cask "rectangle"
 # remove ambient blue at night
@@ -82,7 +64,7 @@ cask "disablemonitor"
 # install different clock / calendar with a custom format
 cask "itsycal"
 # install js desktop widgets
-cask "ubersicht"
+# cask "ubersicht"
 # disk usage analyzer
 cask "GrandPerspective"
 # clean up
@@ -105,7 +87,7 @@ cask "shapes"
 # clipboard manager
 cask "clipy"
 # show keyboard shortcuts for apps
-cask "cheatsheet"
+# cask "cheatsheet"
 # vpn software to connect to multiple
 cask "tunnelblick"
 cask "protonvpn"
@@ -116,35 +98,26 @@ cask "font-fira-code"
 # cask "dozer" # doesn't support m1
 cask "hiddenbar"
 # office suite
-cask "libreoffice"
+# cask "libreoffice"
 # make gifs from screen
 cask "gifcapture"
 # github notifications
-cask "gitify"
+# cask "gitify"
 # install sourcetrail for dependency graphs
-cask "sourcetrail"
+# cask "sourcetrail"
 # good gui diff tool
 cask "meld"
 # google drive mount
-cask "google-backup-and-sync"
+# cask "google-backup-and-sync"
 # security
 # cask "cyberduck"
 # screenshot
-cask "flameshot"
-# safely login to aws
-## TODO: check out granted
-cask "leapp"
-# k8s UIs
-## may need to pay for this one
-cask "lens"
-## a couple lens alternatives
-cask "kubenav"
-cask "octant"
+# cask "flameshot"
+cask "macshot"
 
 ## brew cli tools ##
 
 # manage leapp
-brew "leapp-cli"
 tap "common-fate/granted"
 brew "granted"
 
@@ -815,6 +788,7 @@ cask "stats"
 cask "wakatime"
 # Voice-to-text dictation with AI-powered auto-editing
 cask "wispr-flow"
+
 ## vscode extensions ##
 
 vscode "bmewburn.vscode-intelephense-client"
