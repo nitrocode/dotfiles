@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # more located at https://github.com/herrbischoff/awesome-macos-command-line
 
 # show osx hidden files by default
